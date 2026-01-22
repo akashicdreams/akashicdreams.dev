@@ -43,21 +43,14 @@ export function AlbumsGrid({ albums }: AlbumsGridProps) {
                                 }}
                             />
                             {/* Hover overlay */}
-                            <motion.div
-                                initial={{ y: '100%' }}
-                                whileHover={{ y: 0 }}
-                                className="absolute inset-0 bg-[var(--bg)]/95 flex flex-col justify-end p-6"
-                            >
-                                <h3 className="text-2xl font-bold lowercase mb-2">{album.title}</h3>
-                                <div className="text-sm text-[var(--muted)]">
-                                    {album.location && <p>{album.location}</p>}
-                                    {album.date && <p>{album.date}</p>}
-                                    {album.description && <p className="mt-2">{album.description}</p>}
+                            <div className="absolute inset-0 bg-[var(--bg)] opacity-0 group-hover:opacity-90 transition-opacity flex items-end p-6">
+                                <div>
+                                    <h3 className="text-xl font-bold lowercase">{album.title}</h3>
+                                    {album.location && (
+                                        <p className="text-sm text-[var(--muted)]">{album.location}</p>
+                                    )}
                                 </div>
-                                <p className="text-sm mt-4 opacity-50">
-                                    {album.images.length} {album.images.length === 1 ? 'photo' : 'photos'}
-                                </p>
-                            </motion.div>
+                            </div>
                         </div>
                     </Link>
                 </motion.div>

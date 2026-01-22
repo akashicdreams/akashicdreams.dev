@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -77,7 +77,17 @@ export function SoftwareGrid({ projects }: SoftwareGridProps) {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.1 }}
-                        className="group border border-[var(--border)] rounded-sm overflow-hidden hover:border-[var(--fg)] transition-all"
+                        className="group border border-[var(--border)] rounded-sm overflow-hidden hover:border-[var(--fg)] transition-all cursor-pointer"
+                        onClick={(e: React.MouseEvent<HTMLDivElement>) => {
+                            // Don't trigger if clicking on an interactive element
+                            const target = e.target as HTMLElement;
+                            if (target.closest('a') || target.closest('button')) return;
+
+                            const targetUrl = project.demo || project.github;
+                            if (targetUrl) {
+                                window.open(targetUrl, '_blank', 'noopener,noreferrer');
+                            }
+                        }}
                     >
                         {project.thumbnail && (
                             <div className="aspect-video bg-[var(--border)] relative overflow-hidden">
@@ -116,6 +126,7 @@ export function SoftwareGrid({ projects }: SoftwareGridProps) {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-xs hover:text-[var(--fg)] text-[var(--muted)] transition-colors lowercase"
+                                    onClick={(e) => e.stopPropagation()}
                                 >
                                     github
                                 </a>
@@ -125,6 +136,7 @@ export function SoftwareGrid({ projects }: SoftwareGridProps) {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="text-xs flex items-center gap-2 hover:opacity-70 transition-opacity"
+                                        onClick={(e) => e.stopPropagation()}
                                     >
                                         <svg
                                             className="w-3 h-3"
