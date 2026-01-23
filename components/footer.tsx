@@ -10,7 +10,7 @@ export function Footer() {
     return (
         <footer className="border-t border-[var(--border)] mt-32">
             <div className="container py-12">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
                     {/* Contact */}
                     <div>
                         <h3 className="text-sm lowercase tracking-wider mb-4 opacity-50">contact</h3>

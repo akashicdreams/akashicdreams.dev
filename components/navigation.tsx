@@ -13,6 +13,7 @@ const navItems = [
     { label: 'software', href: '/software' },
     { label: 'photos', href: '/photos' },
     { label: 'blog', href: '/blog' },
+    { label: 'about', href: '/about' },
     { label: 'contact', href: '/contact' },
 ];
 
@@ -20,10 +21,16 @@ export function Navigation() {
     const pathname = usePathname();
     const { theme } = useTheme();
     const [mounted, setMounted] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         setMounted(true);
     }, []);
+
+    // Close mobile menu when route changes
+    useEffect(() => {
+        setIsOpen(false);
+    }, [pathname]);
 
     const logoSrc = mounted && theme === 'light'
         ? '/brand/logo-mark-light.svg'
@@ -46,7 +53,6 @@ export function Navigation() {
                                 height={40}
                                 className="object-contain"
                                 onError={(e) => {
-                                    // Fallback to text if image not found
                                     e.currentTarget.style.display = 'none';
                                 }}
                             />
@@ -56,7 +62,8 @@ export function Navigation() {
                     </div>
                 </Link>
 
-                <div className="flex items-center gap-4 md:gap-8 overflow-visible flex-shrink-0 no-scrollbar pr-4">
+                {/* Desktop Navigation */}
+                <div className="hidden md:flex items-center gap-8">
                     {navItems.map((item) => {
                         const isActive = pathname === item.href ||
                             (item.href !== '/' && pathname.startsWith(item.href));
@@ -65,7 +72,7 @@ export function Navigation() {
                             <Link
                                 key={item.href}
                                 href={item.href}
-                                className="relative text-sm lowercase tracking-wide whitespace-nowrap py-2"
+                                className="relative text-sm lowercase tracking-wide py-2"
                             >
                                 {item.label}
                                 {isActive && (
@@ -80,7 +87,55 @@ export function Navigation() {
                     })}
                     <ThemeToggle />
                 </div>
+
+                {/* Mobile Burger & Theme */}
+                <div className="flex items-center gap-4 md:hidden">
+                    <ThemeToggle />
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="p-2 -mr-2 text-[var(--fg)]"
+                        aria-label="Toggle menu"
+                    >
+                        <div className="w-6 h-5 relative flex flex-col justify-between">
+                            <motion.span
+                                animate={isOpen ? { rotate: 45, y: 9 } : { rotate: 0, y: 0 }}
+                                className="w-full h-0.5 bg-current origin-center transition-transform"
+                            />
+                            <motion.span
+                                animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
+                                className="w-full h-0.5 bg-current transition-opacity"
+                            />
+                            <motion.span
+                                animate={isOpen ? { rotate: -45, y: -9 } : { rotate: 0, y: 0 }}
+                                className="w-full h-0.5 bg-current origin-center transition-transform"
+                            />
+                        </div>
+                    </button>
+                </div>
             </div>
+
+            {/* Mobile Menu Overlay */}
+            <motion.div
+                initial={false}
+                animate={isOpen ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
+                className="overflow-hidden md:hidden bg-[var(--bg)] border-b border-[var(--border)]"
+            >
+                <div className="container py-8 flex flex-col gap-6">
+                    {navItems.map((item) => {
+                        const isActive = pathname === item.href;
+                        return (
+                            <Link
+                                key={item.href}
+                                href={item.href}
+                                className={`text-2xl lowercase tracking-wide ${isActive ? 'text-[var(--fg)] font-bold' : 'text-[var(--muted)]'
+                                    }`}
+                            >
+                                {item.label}
+                            </Link>
+                        );
+                    })}
+                </div>
+            </motion.div>
         </motion.nav>
     );
 }

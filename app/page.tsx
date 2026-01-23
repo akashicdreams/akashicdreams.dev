@@ -4,6 +4,7 @@ import { Hero } from '@/components/home/hero';
 import { PillarToggle } from '@/components/home/pillar-toggle';
 import { PhilosophySection } from '@/components/home/philosophy-section';
 import { ContactCTA } from '@/components/home/contact-cta';
+import { AboutUs } from '@/components/home/about-us';
 
 export default async function HomePage() {
   const projects = getAllSoftwareProjects();
@@ -12,6 +13,9 @@ export default async function HomePage() {
   return (
     <div className="bg-[var(--bg)] min-h-screen pb-32">
       <Hero projects={projects} albums={albums} />
+
+      {/* About Us Section */}
+      <AboutUs />
 
       {/* Explicit margin wrapper */}
       <div style={{ marginBottom: '12rem' }}>

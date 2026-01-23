@@ -37,7 +37,7 @@ export function AlbumsGrid({ albums }: AlbumsGridProps) {
                                 src={album.cover}
                                 alt={album.title}
                                 fill
-                                className="object-cover group-hover:scale-105 transition-transform duration-500 grayscale"
+                                className="object-cover group-hover:scale-105 transition-transform duration-500"
                                 onError={(e) => {
                                     e.currentTarget.style.display = 'none';
                                 }}
