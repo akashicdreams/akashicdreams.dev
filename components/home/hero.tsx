@@ -103,28 +103,22 @@ export function Hero({ projects, albums }: HeroProps) {
                         building software <br />and visual stories
                     </h1>
 
-                    <p className="text-xl md:text-2xl text-[var(--muted)] mb-12 lowercase">
+                    <p className="text-xl md:text-2xl text-[var(--muted)] mb-14 lowercase font-semibold">
                         akashic dreams
                     </p>
 
-                    <div className="flex flex-wrap gap-4 justify-center">
+                    <div className="flex flex-wrap gap-6 justify-center">
                         <Link
                             href="/software"
-                            className="px-6 py-3 text-sm lowercase tracking-wider border border-[var(--fg)] rounded-sm hover:bg-[var(--fg)] hover:text-[var(--bg)] transition-all"
+                            className="px-14 py-7 text-base lowercase tracking-wider border-2 border-[var(--fg)] rounded-sm hover:bg-[var(--fg)] hover:text-[var(--bg)] transition-all"
                         >
                             view software
                         </Link>
                         <Link
                             href="/photos"
-                            className="px-6 py-3 text-sm lowercase tracking-wider border border-[var(--fg)] rounded-sm hover:bg-[var(--fg)] hover:text-[var(--bg)] transition-all"
+                            className="px-14 py-7 text-base lowercase tracking-wider border-2 border-[var(--fg)] rounded-sm hover:bg-[var(--fg)] hover:text-[var(--bg)] transition-all"
                         >
                             view photos
-                        </Link>
-                        <Link
-                            href="/blog"
-                            className="px-6 py-3 text-sm lowercase tracking-wider border border-[var(--fg)] rounded-sm hover:bg-[var(--fg)] hover:text-[var(--bg)] transition-all"
-                        >
-                            read blog
                         </Link>
                     </div>
                 </motion.div>

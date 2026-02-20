@@ -10,9 +10,9 @@ import { useEffect, useState } from 'react';
 
 const navItems = [
     { label: 'work', href: '/' },
+    { label: 'services', href: '/services/website-development' },
     { label: 'software', href: '/software' },
     { label: 'photos', href: '/photos' },
-    { label: 'blog', href: '/blog' },
     { label: 'about', href: '/about' },
     { label: 'contact', href: '/contact' },
 ];

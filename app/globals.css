@@ -4,8 +4,8 @@
   /* Color system - monochrome only */
   --color-bg: oklch(0% 0 0);
   --color-fg: oklch(100% 0 0);
-  --color-muted: oklch(40% 0 0);
-  --color-border: oklch(20% 0 0);
+  --color-muted: oklch(65% 0 0);
+  --color-border: oklch(22% 0 0);
 
   /* Fonts */
   --font-sans: 'Rajdhani', ui-sans-serif, system-ui, sans-serif;
@@ -17,14 +17,14 @@
 :root {
   --bg: oklch(0% 0 0);
   --fg: oklch(100% 0 0);
-  --muted: oklch(40% 0 0);
-  --border: oklch(20% 0 0);
+  --muted: oklch(65% 0 0);
+  --border: oklch(22% 0 0);
 }
 
 [data-theme="light"] {
   --bg: oklch(100% 0 0);
   --fg: oklch(0% 0 0);
-  --muted: oklch(60% 0 0);
+  --muted: oklch(45% 0 0);
   --border: oklch(85% 0 0);
 }
 
@@ -44,8 +44,8 @@ body {
   background: var(--bg);
   color: var(--fg);
   font-family: 'Rajdhani', ui-sans-serif, system-ui, sans-serif;
-  font-weight: 400;
-  line-height: 1.6;
+  font-weight: 500;
+  line-height: 1.7;
   transition: background-color var(--transition-default), color var(--transition-default);
 }
 
@@ -136,12 +136,31 @@ html {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
 }
 
 @media (min-width: 768px) {
   .container {
-    padding: 0 2rem;
+    padding: 0 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 3rem;
+  }
+}
+
+/* Section spacing */
+.section-spacing {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+@media (min-width: 768px) {
+  .section-spacing {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
   }
 }
 

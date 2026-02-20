@@ -35,24 +35,24 @@ export function PillarToggle({ projects, albums }: PillarToggleProps) {
     }));
 
     return (
-        <section style={{ paddingTop: '6rem', paddingBottom: '6rem' }} className="px-4">
+        <section style={{ paddingTop: '8rem', paddingBottom: '8rem' }} className="px-6 md:px-8 border-t border-[var(--border)]">
             <div className="container max-w-full mx-auto overflow-hidden">
                 {/* Toggle */}
-                <div className="flex justify-center mb-12 gap-12">
+                <div className="flex justify-center mb-20 gap-16">
                     <button
                         onClick={() => setActiveTab('software')}
-                        className={`text-lg lowercase tracking-widest transition-all pb-2 border-b-2 ${activeTab === 'software'
+                        className={`text-2xl md:text-3xl font-bold lowercase tracking-wider transition-all pb-3 border-b-4 ${activeTab === 'software'
                             ? 'border-[var(--fg)] text-[var(--fg)]'
-                            : 'border-transparent text-[var(--muted)] hover:text-[var(--fg)]'
+                            : 'border-transparent text-[var(--muted)] hover:text-[var(--fg)] hover:border-[var(--border)]'
                             }`}
                     >
                         software
                     </button>
                     <button
                         onClick={() => setActiveTab('photos')}
-                        className={`text-lg lowercase tracking-widest transition-all pb-2 border-b-2 ${activeTab === 'photos'
+                        className={`text-2xl md:text-3xl font-bold lowercase tracking-wider transition-all pb-3 border-b-4 ${activeTab === 'photos'
                             ? 'border-[var(--fg)] text-[var(--fg)]'
-                            : 'border-transparent text-[var(--muted)] hover:text-[var(--fg)]'
+                            : 'border-transparent text-[var(--muted)] hover:text-[var(--fg)] hover:border-[var(--border)]'
                             }`}
                     >
                         photos

@@ -40,12 +40,12 @@ export function SoftwareGrid({ projects }: SoftwareGridProps) {
         <div>
             {/* Filter chips */}
             {allTags.length > 0 && (
-                <div className="flex flex-wrap gap-3 justify-center mb-12">
+                <div className="flex flex-wrap gap-6 justify-center mb-16">
                     <button
                         onClick={() => setSelectedTag('all')}
-                        className={`px-4 py-2 text-sm lowercase tracking-wider rounded-sm transition-all ${selectedTag === 'all'
+                        className={`px-12 py-6 text-lg font-medium lowercase tracking-wider rounded-sm transition-all ${selectedTag === 'all'
                             ? 'bg-[var(--fg)] text-[var(--bg)]'
-                            : 'border border-[var(--border)] hover:border-[var(--fg)]'
+                            : 'border-2 border-[var(--border)] hover:border-[var(--fg)]'
                             }`}
                     >
                         all
@@ -54,9 +54,9 @@ export function SoftwareGrid({ projects }: SoftwareGridProps) {
                         <button
                             key={tag}
                             onClick={() => setSelectedTag(tag)}
-                            className={`px-4 py-2 text-sm lowercase tracking-wider rounded-sm transition-all ${selectedTag === tag
+                            className={`px-12 py-6 text-lg font-medium lowercase tracking-wider rounded-sm transition-all ${selectedTag === tag
                                 ? 'bg-[var(--fg)] text-[var(--bg)]'
-                                : 'border border-[var(--border)] hover:border-[var(--fg)]'
+                                : 'border-2 border-[var(--border)] hover:border-[var(--fg)]'
                                 }`}
                         >
                             {tag}
@@ -108,11 +108,11 @@ export function SoftwareGrid({ projects }: SoftwareGridProps) {
                             <p className="text-sm text-[var(--muted)] mb-4">{project.summary.toLowerCase()}</p>
 
                             {/* Tech stack */}
-                            <div className="flex flex-wrap gap-2 mb-4">
+                            <div className="flex flex-wrap gap-3 mb-6">
                                 {project.stack.map((tech) => (
                                     <span
                                         key={tech}
-                                        className="text-xs px-2 py-1 border border-[var(--border)] rounded-sm lowercase"
+                                        className="text-base px-6 py-3 bg-[var(--border)] rounded-sm lowercase font-medium"
                                     >
                                         {tech.toLowerCase()}
                                     </span>
