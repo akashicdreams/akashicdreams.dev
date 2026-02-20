@@ -9,7 +9,6 @@ import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
 const navItems = [
-    { label: 'work', href: '/' },
     { label: 'services', href: '/services/website-development' },
     { label: 'software', href: '/software' },
     { label: 'photos', href: '/photos' },

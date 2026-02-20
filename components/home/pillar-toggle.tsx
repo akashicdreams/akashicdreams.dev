@@ -21,7 +21,7 @@ export function PillarToggle({ projects, albums }: PillarToggleProps) {
         title: p.title,
         subtitle: p.summary,
         image: p.thumbnail,
-        link: p.github,
+        link: p.demo || p.github,
         external: true
     }));
 
