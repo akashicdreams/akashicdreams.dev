@@ -30,15 +30,9 @@ export default async function ServicePage({ params }: ServicePageProps) {
         notFound();
     }
 
-    const currentIndex = services.findIndex((s) => s.slug === slug);
-    const prevService = currentIndex > 0 ? services[currentIndex - 1] : null;
-    const nextService = currentIndex < services.length - 1 ? services[currentIndex + 1] : null;
-
     return (
         <ServicePageClient
             service={service}
-            prevService={prevService}
-            nextService={nextService}
             allServices={services}
         />
     );

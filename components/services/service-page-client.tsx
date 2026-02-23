@@ -19,12 +19,10 @@ const shapes: Record<string, 'diamond' | 'circle' | 'triangle' | 'hexagon' | 'co
 
 interface ServicePageClientProps {
     service: Service;
-    prevService: Service | null;
-    nextService: Service | null;
     allServices: Service[];
 }
 
-export function ServicePageClient({ service, prevService, nextService, allServices }: ServicePageClientProps) {
+export function ServicePageClient({ service, allServices }: ServicePageClientProps) {
     const asciiShape = shapes[service.slug] || 'diamond';
 
     return (
@@ -90,10 +88,12 @@ export function ServicePageClient({ service, prevService, nextService, allServic
                 </div>
             </section>
 
+            <div className="section-divider" />
+
             {/* ─── ABOUT ─── */}
-            <section className="relative py-40 md:py-52">
+            <section className="relative py-44 md:py-52">
                 <div className="absolute inset-0 animated-gradient-bg" />
-                <div className="relative z-10 flex justify-center px-6">
+                <div className="relative z-10 flex justify-center px-8 md:px-6">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -112,8 +112,10 @@ export function ServicePageClient({ service, prevService, nextService, allServic
                 </div>
             </section>
 
+            <div className="section-divider" />
+
             {/* ─── FEATURES ─── */}
-            <section className="relative py-40 md:py-52 overflow-hidden">
+            <section className="relative py-44 md:py-52 overflow-hidden">
                 <div className="absolute inset-0">
                     <MatrixRain opacity={0.03} speed={0.4} density={0.2} />
                 </div>
@@ -169,8 +171,10 @@ export function ServicePageClient({ service, prevService, nextService, allServic
                 </div>
             </section>
 
+            <div className="section-divider" />
+
             {/* ─── PRICING ─── */}
-            <section className="relative py-40 md:py-52 overflow-hidden">
+            <section className="relative py-44 md:py-52 overflow-hidden">
                 <FloatingParticles count={8} minSize={1} maxSize={3} />
 
                 {/* Decorative rotating shape */}
@@ -226,8 +230,10 @@ export function ServicePageClient({ service, prevService, nextService, allServic
                 </div>
             </section>
 
+            <div className="section-divider" />
+
             {/* ─── OTHER SERVICES ─── */}
-            <section className="relative py-32 md:py-40 overflow-hidden">
+            <section className="relative py-44 md:py-40 overflow-hidden">
                 <div className="container max-w-7xl mx-auto px-6 relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -283,48 +289,6 @@ export function ServicePageClient({ service, prevService, nextService, allServic
                     </div>
                 </div>
             </section>
-
-            {/* ─── PREV / NEXT ─── */}
-            {(prevService || nextService) && (
-                <section className="relative py-20 border-t border-[var(--border)]">
-                    <div className="container max-w-7xl mx-auto px-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {prevService ? (
-                                <Link
-                                    href={`/services/${prevService.slug}`}
-                                    className="group relative border border-[var(--border)] rounded-sm p-10 md:p-12 hover:border-[var(--fg)] transition-all duration-500 overflow-hidden text-center"
-                                >
-                                    <span className="text-xs text-[var(--muted)] lowercase font-semibold tracking-wider block mb-4">
-                                        ← previous
-                                    </span>
-                                    <span className="text-2xl md:text-3xl font-bold lowercase tracking-tight block">
-                                        {prevService.title}
-                                    </span>
-                                    <div className="absolute bottom-0 left-0 w-full h-px bg-[var(--fg)] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-                                </Link>
-                            ) : (
-                                <div />
-                            )}
-                            {nextService ? (
-                                <Link
-                                    href={`/services/${nextService.slug}`}
-                                    className="group relative border border-[var(--border)] rounded-sm p-10 md:p-12 hover:border-[var(--fg)] transition-all duration-500 overflow-hidden text-center"
-                                >
-                                    <span className="text-xs text-[var(--muted)] lowercase font-semibold tracking-wider block mb-4">
-                                        next →
-                                    </span>
-                                    <span className="text-2xl md:text-3xl font-bold lowercase tracking-tight block">
-                                        {nextService.title}
-                                    </span>
-                                    <div className="absolute bottom-0 left-0 w-full h-px bg-[var(--fg)] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-right" />
-                                </Link>
-                            ) : (
-                                <div />
-                            )}
-                        </div>
-                    </div>
-                </section>
-            )}
 
             <div className="h-20" aria-hidden="true" />
         </div>

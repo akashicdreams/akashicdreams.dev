@@ -141,7 +141,7 @@ export function AboutPageClient() {
             {/* ─── WHAT IS AKASHIC ─── */}
             <section className="relative py-44 md:py-56">
                 <div className="absolute inset-0 animated-gradient-bg" />
-                <div className="relative z-10 flex justify-center px-6">
+                <div className="relative z-10 flex justify-center px-8 md:px-6">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -161,7 +161,7 @@ export function AboutPageClient() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="text-xl md:text-2xl lowercase leading-relaxed text-[var(--muted)] mb-10"
+                            className="text-lg md:text-2xl lowercase leading-relaxed text-[var(--muted)] mb-10"
                         >
                             in ancient sanskrit, &ldquo;akasha&rdquo; means the ether — the fundamental substance from which all things emerge. the akashic records are believed to be an infinite library of every thought, event, and possibility that has ever existed or will ever exist.
                         </motion.p>
@@ -170,7 +170,7 @@ export function AboutPageClient() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, delay: 0.4 }}
-                            className="text-xl md:text-2xl lowercase leading-relaxed text-[var(--fg)] font-light"
+                            className="text-lg md:text-2xl lowercase leading-relaxed text-[var(--fg)] font-light"
                         >
                             we chose this name because we believe creation is not just technical — it&apos;s spiritual. every project begins as an idea floating in the ether, and our job is to pull it into reality with code, design, and intention.
                         </motion.p>
@@ -191,7 +191,7 @@ export function AboutPageClient() {
                     <AsciiArtFigure shape="diamond" rows={25} cols={30} animSpeed={2500} />
                 </div>
 
-                <div className="relative z-10 flex justify-center px-6">
+                <div className="relative z-10 flex justify-center px-8 md:px-6">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -211,7 +211,7 @@ export function AboutPageClient() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="text-xl md:text-2xl lowercase leading-relaxed text-[var(--muted)] mb-10"
+                            className="text-lg md:text-2xl lowercase leading-relaxed text-[var(--muted)] mb-10"
                         >
                             akashic dreams is a small creative and technology studio. we live at the intersection of software engineering and visual storytelling — building digital systems that work beautifully and capturing moments that tell real stories.
                         </motion.p>
@@ -220,7 +220,7 @@ export function AboutPageClient() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, delay: 0.4 }}
-                            className="text-xl md:text-2xl lowercase leading-relaxed text-[var(--fg)] font-light"
+                            className="text-lg md:text-2xl lowercase leading-relaxed text-[var(--fg)] font-light"
                         >
                             we don&apos;t follow trends. we build with care, ship with confidence, and believe that the best work comes from a place of calm focus rather than chaotic hustle. sometimes we&apos;re writing code. sometimes we&apos;re behind a camera. either way, we create things that feel simple and a bit magical.
                         </motion.p>
@@ -399,7 +399,7 @@ export function AboutPageClient() {
             <section className="relative py-44 md:py-56 overflow-hidden">
                 <FloatingParticles count={10} minSize={1} maxSize={3} />
 
-                <div className="relative z-10 flex justify-center px-6">
+                <div className="relative z-10 flex justify-center px-8 md:px-6">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -462,7 +462,7 @@ export function AboutPageClient() {
                     <AsciiArtFigure shape="hexagon" rows={20} cols={24} animSpeed={2000} />
                 </div>
 
-                <div className="relative z-10 flex justify-center px-6">
+                <div className="relative z-10 flex justify-center px-8 md:px-6">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}

@@ -25,10 +25,41 @@ export function Footer() {
                 }}
             />
 
-            <div className="container py-20 md:py-28">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-12">
+            {/* Mobile footer — compact */}
+            <div className="md:hidden py-10 px-6 text-center">
+                <Link href="/" className="text-xl font-bold lowercase tracking-tight">
+                    akashic dreams
+                </Link>
+                <p className="text-xs text-[var(--muted)] mt-2 lowercase">
+                    building software and visual stories
+                </p>
+
+                <div className="mt-6 flex items-center justify-center gap-4 text-sm">
+                    {socialLinks.map((link) => (
+                        <a
+                            key={link.label}
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="lowercase text-[var(--muted)] hover:text-[var(--fg)] transition-colors"
+                        >
+                            {link.label}
+                        </a>
+                    ))}
+                </div>
+
+                <div className="mt-6 pt-6 border-t border-[var(--border)]">
+                    <p className="text-xs text-[var(--muted)] tracking-wider">
+                        &copy; {new Date().getFullYear()} akashic dreams
+                    </p>
+                </div>
+            </div>
+
+            {/* Desktop footer — full */}
+            <div className="container py-20 md:py-28 hidden md:block">
+                <div className="grid grid-cols-4 gap-12">
                     {/* Brand */}
-                    <div className="md:col-span-1">
+                    <div className="col-span-1">
                         <Link href="/" className="text-2xl font-bold lowercase tracking-tight">
                             akashic dreams
                         </Link>
@@ -98,7 +129,7 @@ export function Footer() {
                 </div>
 
                 {/* Bottom bar */}
-                <div className="mt-20 pt-8 border-t border-[var(--border)] flex flex-col md:flex-row items-center justify-between gap-4">
+                <div className="mt-20 pt-8 border-t border-[var(--border)] flex flex-row items-center justify-between gap-4">
                     <p className="text-xs text-[var(--muted)] tracking-wider">
                         &copy; {new Date().getFullYear()} akashic dreams
                     </p>
