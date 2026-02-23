@@ -10,22 +10,29 @@ export default async function HomePage() {
   const albums = getAllPhotoAlbums();
 
   return (
-    <div className="bg-[var(--bg)] min-h-screen pb-32">
-      <Hero projects={projects} albums={albums} />
+    <div className="bg-[var(--bg)] min-h-screen">
+      <Hero />
+
+      {/* Divider */}
+      <div className="section-divider" />
 
       {/* Services & Pricing */}
       <ServicesPricing />
 
+      {/* Divider */}
+      <div className="section-divider" />
+
       {/* Portfolio Showcase */}
-      <div style={{ marginBottom: '6rem' }}>
-        <PillarToggle projects={projects} albums={albums} />
-      </div>
+      <PillarToggle projects={projects} albums={albums} />
+
+      {/* Divider */}
+      <div className="section-divider" />
 
       {/* Contact Form */}
       <ContactCTA />
 
-      {/* Spacer */}
-      <div style={{ height: '100px', display: 'block', width: '100%' }} aria-hidden="true" />
+      {/* Bottom breathing room */}
+      <div style={{ height: '120px' }} aria-hidden="true" />
     </div>
   );
 }

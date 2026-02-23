@@ -151,16 +151,16 @@ html {
   }
 }
 
-/* Section spacing */
+/* Section spacing — generous breathing room */
 .section-spacing {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
 
 @media (min-width: 768px) {
   .section-spacing {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
+    padding-top: 12rem;
+    padding-bottom: 12rem;
   }
 }
 
@@ -171,6 +171,139 @@ html {
 
 [data-theme="light"] .gradient-radial {
   background: radial-gradient(circle at center, rgba(0, 0, 0, 0.03) 0%, transparent 70%);
+}
+
+/* Section divider gradient */
+.section-divider {
+  height: 200px;
+  background: linear-gradient(to bottom,
+      transparent 0%,
+      rgba(255, 255, 255, 0.02) 40%,
+      rgba(255, 255, 255, 0.02) 60%,
+      transparent 100%);
+  position: relative;
+}
+
+[data-theme="light"] .section-divider {
+  background: linear-gradient(to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.015) 40%,
+      rgba(0, 0, 0, 0.015) 60%,
+      transparent 100%);
+}
+
+
+/* Glow effect for cards */
+.card-glow {
+  position: relative;
+}
+
+.card-glow::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+
+[data-theme="light"] .card-glow::before {
+  background: linear-gradient(135deg,
+      rgba(0, 0, 0, 0.06) 0%,
+      transparent 50%,
+      rgba(0, 0, 0, 0.03) 100%);
+}
+
+.card-glow:hover::before {
+  opacity: 1;
+}
+
+/* Animated gradient background */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient-bg {
+  background: linear-gradient(135deg,
+      rgba(255, 255, 255, 0.0) 0%,
+      rgba(255, 255, 255, 0.02) 25%,
+      rgba(255, 255, 255, 0.0) 50%,
+      rgba(255, 255, 255, 0.03) 75%,
+      rgba(255, 255, 255, 0.0) 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+[data-theme="light"] .animated-gradient-bg {
+  background: linear-gradient(135deg,
+      rgba(0, 0, 0, 0.0) 0%,
+      rgba(0, 0, 0, 0.015) 25%,
+      rgba(0, 0, 0, 0.0) 50%,
+      rgba(0, 0, 0, 0.02) 75%,
+      rgba(0, 0, 0, 0.0) 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* Pulsing glow keyframe */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+/* Scan line effect */
+@keyframes scanLine {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+.scan-line::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right,
+      transparent,
+      rgba(255, 255, 255, 0.06),
+      transparent);
+  animation: scanLine 8s linear infinite;
+  pointer-events: none;
+}
+
+[data-theme="light"] .scan-line::after {
+  background: linear-gradient(to right,
+      transparent,
+      rgba(0, 0, 0, 0.04),
+      transparent);
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

@@ -6,15 +6,62 @@ const socialLinks = [
     { label: 'facebook', href: 'https://www.facebook.com/profile.php?id=61586506872768' },
 ];
 
+const navLinks = [
+    { label: 'services', href: '/services/website-development' },
+    { label: 'software', href: '/software' },
+    { label: 'photos', href: '/photos' },
+    { label: 'about', href: '/about' },
+    { label: 'contact', href: '/contact' },
+];
+
 export function Footer() {
     return (
-        <footer className="border-t border-[var(--border)] mt-32">
-            <div className="container py-12">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+        <footer className="border-t border-[var(--border)] relative overflow-hidden">
+            {/* Subtle gradient top edge */}
+            <div
+                className="absolute top-0 left-0 right-0 h-[1px] pointer-events-none"
+                style={{
+                    background: 'linear-gradient(to right, transparent, var(--border), transparent)',
+                }}
+            />
+
+            <div className="container py-20 md:py-28">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-16 md:gap-12">
+                    {/* Brand */}
+                    <div className="md:col-span-1">
+                        <Link href="/" className="text-2xl font-bold lowercase tracking-tight">
+                            akashic dreams
+                        </Link>
+                        <p className="text-sm text-[var(--muted)] mt-4 lowercase leading-relaxed max-w-xs">
+                            building software and visual stories
+                        </p>
+                    </div>
+
+                    {/* Navigation */}
+                    <div>
+                        <h3 className="text-xs lowercase tracking-[0.3em] mb-6 text-[var(--muted)] font-semibold">
+                            navigation
+                        </h3>
+                        <div className="space-y-3 text-sm">
+                            {navLinks.map((link) => (
+                                <div key={link.label}>
+                                    <Link
+                                        href={link.href}
+                                        className="lowercase hover:opacity-70 transition-opacity"
+                                    >
+                                        {link.label}
+                                    </Link>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
                     {/* Contact */}
                     <div>
-                        <h3 className="text-sm lowercase tracking-wider mb-4 opacity-50">contact</h3>
-                        <div className="space-y-2 text-sm">
+                        <h3 className="text-xs lowercase tracking-[0.3em] mb-6 text-[var(--muted)] font-semibold">
+                            contact
+                        </h3>
+                        <div className="space-y-3 text-sm">
                             <div>
                                 <a href="mailto:admin@akashicdreams.dev" className="hover:opacity-70">
                                     admin@akashicdreams.dev
@@ -30,15 +77,17 @@ export function Footer() {
 
                     {/* Social */}
                     <div>
-                        <h3 className="text-sm lowercase tracking-wider mb-4 opacity-50">social</h3>
-                        <div className="space-y-2 text-sm">
+                        <h3 className="text-xs lowercase tracking-[0.3em] mb-6 text-[var(--muted)] font-semibold">
+                            social
+                        </h3>
+                        <div className="space-y-3 text-sm">
                             {socialLinks.map((link) => (
                                 <div key={link.label}>
                                     <a
                                         href={link.href}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="hover:opacity-70"
+                                        className="lowercase hover:opacity-70 transition-opacity"
                                     >
                                         {link.label}
                                     </a>
@@ -46,13 +95,16 @@ export function Footer() {
                             ))}
                         </div>
                     </div>
+                </div>
 
-                    {/* Copyright */}
-                    <div className="md:text-right">
-                        <p className="text-sm opacity-50">
-                            © {new Date().getFullYear()} akashic dreams
-                        </p>
-                    </div>
+                {/* Bottom bar */}
+                <div className="mt-20 pt-8 border-t border-[var(--border)] flex flex-col md:flex-row items-center justify-between gap-4">
+                    <p className="text-xs text-[var(--muted)] tracking-wider">
+                        &copy; {new Date().getFullYear()} akashic dreams
+                    </p>
+                    <p className="text-xs text-[var(--muted)] tracking-wider lowercase">
+                        all rights reserved
+                    </p>
                 </div>
             </div>
         </footer>

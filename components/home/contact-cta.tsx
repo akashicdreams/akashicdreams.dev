@@ -2,38 +2,58 @@
 
 import { motion } from 'framer-motion';
 import { ContactForm } from '@/components/contact/contact-form';
+import { MatrixRain } from '@/components/ui/matrix-rain';
+import { FloatingParticles } from '@/components/ui/floating-particles';
 
 export function ContactCTA() {
     return (
-        <section id="contact" className="px-6 md:px-8 border-t border-[var(--border)] pt-36 pb-36 bg-[var(--bg)] relative overflow-hidden">
-            <div className="container max-w-7xl mx-auto">
+        <section id="contact" className="px-6 md:px-8 pt-40 pb-40 md:pt-52 md:pb-52 bg-[var(--bg)] relative overflow-hidden">
+            {/* Matrix rain background — subtle */}
+            <div className="absolute inset-0">
+                <MatrixRain opacity={0.04} speed={0.5} density={0.3} />
+            </div>
+
+            {/* Floating particles */}
+            <FloatingParticles count={12} minSize={1} maxSize={3} />
+
+            {/* Gradient overlays */}
+            <div
+                className="absolute top-0 left-0 right-0 h-48 pointer-events-none z-[1]"
+                style={{ background: 'linear-gradient(to bottom, var(--bg), transparent)' }}
+            />
+            <div
+                className="absolute bottom-0 left-0 right-0 h-48 pointer-events-none z-[1]"
+                style={{ background: 'linear-gradient(to top, var(--bg), transparent)' }}
+            />
+
+            <div className="container max-w-7xl mx-auto relative z-10">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                    className="flex flex-col items-center text-center mb-24"
+                    transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    className="flex flex-col items-center text-center mb-28 md:mb-36"
                 >
-                    <span className="text-base tracking-[0.3em] text-[var(--muted)] mb-6 lowercase font-semibold">
+                    <span className="text-xs tracking-[0.4em] text-[var(--muted)] mb-8 lowercase font-semibold">
                         contact
                     </span>
-                    <h2 className="text-4xl md:text-6xl font-bold lowercase tracking-tighter">
+                    <h2 className="text-5xl md:text-7xl font-bold lowercase tracking-tighter">
                         let&apos;s work together
                     </h2>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-28">
                     {/* Contact Info - Left Side */}
                     <motion.div
-                        initial={{ opacity: 0, x: -20 }}
+                        initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
                         className="flex flex-col justify-center"
                     >
-                        <div className="space-y-12">
+                        <div className="space-y-14">
                             <div>
-                                <h3 className="text-sm tracking-[0.2em] text-[var(--muted)] lowercase mb-4 font-semibold">
+                                <h3 className="text-xs tracking-[0.3em] text-[var(--muted)] lowercase mb-5 font-semibold">
                                     email
                                 </h3>
                                 <a
@@ -45,7 +65,7 @@ export function ContactCTA() {
                             </div>
 
                             <div>
-                                <h3 className="text-sm tracking-[0.2em] text-[var(--muted)] lowercase mb-4 font-semibold">
+                                <h3 className="text-xs tracking-[0.3em] text-[var(--muted)] lowercase mb-5 font-semibold">
                                     phone
                                 </h3>
                                 <a
@@ -57,34 +77,26 @@ export function ContactCTA() {
                             </div>
 
                             <div>
-                                <h3 className="text-sm tracking-[0.2em] text-[var(--muted)] lowercase mb-4 font-semibold">
+                                <h3 className="text-xs tracking-[0.3em] text-[var(--muted)] lowercase mb-5 font-semibold">
                                     social
                                 </h3>
-                                <div className="flex flex-col gap-3">
-                                    <a
-                                        href="https://www.linkedin.com/company/akashic-dreams/"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-xl hover:opacity-70 transition-opacity lowercase"
-                                    >
-                                        linkedin
-                                    </a>
-                                    <a
-                                        href="https://www.instagram.com/akashicdreams.dev/"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-xl hover:opacity-70 transition-opacity lowercase"
-                                    >
-                                        instagram
-                                    </a>
-                                    <a
-                                        href="https://www.facebook.com/profile.php?id=61586506872768"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-xl hover:opacity-70 transition-opacity lowercase"
-                                    >
-                                        facebook
-                                    </a>
+                                <div className="flex flex-col gap-4">
+                                    {[
+                                        { label: 'linkedin', href: 'https://www.linkedin.com/company/akashic-dreams/' },
+                                        { label: 'instagram', href: 'https://www.instagram.com/akashicdreams.dev/' },
+                                        { label: 'facebook', href: 'https://www.facebook.com/profile.php?id=61586506872768' },
+                                    ].map((link) => (
+                                        <a
+                                            key={link.label}
+                                            href={link.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-xl hover:opacity-70 transition-opacity lowercase group inline-flex items-center gap-2"
+                                        >
+                                            {link.label}
+                                            <span className="text-[var(--muted)] group-hover:translate-x-1 transition-transform duration-300">→</span>
+                                        </a>
+                                    ))}
                                 </div>
                             </div>
                         </div>
@@ -92,30 +104,53 @@ export function ContactCTA() {
 
                     {/* Contact Form - Right Side */}
                     <motion.div
-                        initial={{ opacity: 0, x: 20 }}
+                        initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                        className="border border-[var(--border)] rounded-sm p-10 md:p-12"
+                        transition={{ duration: 0.8, delay: 0.3 }}
+                        className="border border-[var(--border)] rounded-sm p-10 md:p-14 relative overflow-hidden"
                     >
-                        <ContactForm />
+                        {/* Subtle gradient inside the form card */}
+                        <div
+                            className="absolute inset-0 pointer-events-none opacity-30"
+                            style={{
+                                background: 'radial-gradient(ellipse at top right, rgba(255,255,255,0.03) 0%, transparent 60%)',
+                            }}
+                        />
+                        <div className="relative z-10">
+                            <ContactForm />
+                        </div>
                     </motion.div>
                 </div>
             </div>
 
-            {/* Decorative Element */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none opacity-10">
+            {/* Decorative rotating shapes */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] pointer-events-none opacity-[0.04]">
                 <motion.div
                     animate={{
-                        scale: [1, 1.2, 1],
-                        rotate: [0, 90, 0],
+                        scale: [1, 1.15, 1],
+                        rotate: [0, 180, 360],
                     }}
                     transition={{
-                        duration: 20,
+                        duration: 30,
                         repeat: Infinity,
                         ease: 'linear',
                     }}
-                    className="w-full h-full border border-[var(--border)] rounded-[40%]"
+                    className="w-full h-full border border-[var(--fg)] rounded-[40%]"
+                />
+            </div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] pointer-events-none opacity-[0.03]">
+                <motion.div
+                    animate={{
+                        scale: [1.1, 1, 1.1],
+                        rotate: [0, -180, -360],
+                    }}
+                    transition={{
+                        duration: 25,
+                        repeat: Infinity,
+                        ease: 'linear',
+                    }}
+                    className="w-full h-full border border-[var(--fg)] rounded-[35%]"
                 />
             </div>
         </section>

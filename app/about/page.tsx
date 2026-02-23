@@ -1,15 +1,11 @@
 import { Metadata } from 'next';
-import { AboutUs } from '@/components/home/about-us';
+import { AboutPageClient } from '@/components/about/about-page-client';
 
 export const metadata: Metadata = {
     title: 'about us',
-    description: 'sound in its purest state',
+    description: 'the story behind akashic dreams — where code meets consciousness',
 };
 
 export default function AboutPage() {
-    return (
-        <div className="min-h-screen px-4" style={{ paddingTop: '8rem', paddingBottom: '6rem' }}>
-            <AboutUs />
-        </div>
-    );
+    return <AboutPageClient />;
 }

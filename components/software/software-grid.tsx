@@ -1,9 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import Link from 'next/link';
 import { SoftwareProject } from '@/lib/software';
 
 interface SoftwareGridProps {
@@ -11,155 +10,99 @@ interface SoftwareGridProps {
 }
 
 export function SoftwareGrid({ projects }: SoftwareGridProps) {
-    const [selectedTag, setSelectedTag] = useState<string>('all');
-
-    // Extract all unique tags
-    const allTags = projects.reduce((tags: string[], project) => {
-        project.tags.forEach((tag) => {
-            if (!tags.includes(tag)) {
-                tags.push(tag);
-            }
-        });
-        return tags;
-    }, []);
-
-    const filteredProjects = selectedTag === 'all'
-        ? projects
-        : projects.filter((project) => project.tags.includes(selectedTag));
-
     if (projects.length === 0) {
         return (
             <div className="text-center py-24 text-[var(--muted)]">
-                <p className="text-xl mb-2">No software projects yet.</p>
+                <p className="text-xl mb-2 lowercase">no software projects yet.</p>
                 <p className="text-sm">Add markdown files to content/software/</p>
             </div>
         );
     }
 
     return (
-        <div>
-            {/* Filter chips */}
-            {allTags.length > 0 && (
-                <div className="flex flex-wrap gap-6 justify-center mb-16">
-                    <button
-                        onClick={() => setSelectedTag('all')}
-                        className={`px-12 py-6 text-lg font-medium lowercase tracking-wider rounded-sm transition-all ${selectedTag === 'all'
-                            ? 'bg-[var(--fg)] text-[var(--bg)]'
-                            : 'border-2 border-[var(--border)] hover:border-[var(--fg)]'
-                            }`}
-                    >
-                        all
-                    </button>
-                    {allTags.map((tag) => (
-                        <button
-                            key={tag}
-                            onClick={() => setSelectedTag(tag)}
-                            className={`px-12 py-6 text-lg font-medium lowercase tracking-wider rounded-sm transition-all ${selectedTag === tag
-                                ? 'bg-[var(--fg)] text-[var(--bg)]'
-                                : 'border-2 border-[var(--border)] hover:border-[var(--fg)]'
-                                }`}
-                        >
-                            {tag}
-                        </button>
-                    ))}
-                </div>
-            )}
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14"
+        >
+            {projects.map((project, index) => (
+                <motion.div
+                    key={project.slug}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.12, duration: 0.6 }}
+                    className="group card-glow border border-[var(--border)] rounded-sm overflow-hidden hover:border-[var(--fg)] transition-all duration-500 cursor-pointer relative"
+                    onClick={(e: React.MouseEvent<HTMLDivElement>) => {
+                        const target = e.target as HTMLElement;
+                        if (target.closest('a') || target.closest('button')) return;
+                        const targetUrl = project.demo || project.github;
+                        if (targetUrl) {
+                            window.open(targetUrl, '_blank', 'noopener,noreferrer');
+                        }
+                    }}
+                >
+                    {project.thumbnail && (
+                        <div className="aspect-video bg-[var(--border)] relative overflow-hidden">
+                            <Image
+                                src={project.thumbnail}
+                                alt={project.title}
+                                fill
+                                className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-out"
+                                onError={(e) => {
+                                    e.currentTarget.style.display = 'none';
+                                }}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg)] via-transparent to-transparent opacity-60" />
+                        </div>
+                    )}
 
-            {/* Projects grid */}
-            <motion.div
-                layout
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            >
-                {filteredProjects.map((project, index) => (
-                    <motion.div
-                        key={project.slug}
-                        layout
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                        className="group border border-[var(--border)] rounded-sm overflow-hidden hover:border-[var(--fg)] transition-all cursor-pointer"
-                        onClick={(e: React.MouseEvent<HTMLDivElement>) => {
-                            // Don't trigger if clicking on an interactive element
-                            const target = e.target as HTMLElement;
-                            if (target.closest('a') || target.closest('button')) return;
+                    <div className="p-8 md:p-10">
+                        <h3 className="text-2xl font-bold mb-3 lowercase tracking-tight group-hover:tracking-normal transition-all duration-300">
+                            {project.title.toLowerCase()}
+                        </h3>
+                        <p className="text-sm text-[var(--muted)] mb-6 leading-relaxed">
+                            {project.summary.toLowerCase()}
+                        </p>
 
-                            const targetUrl = project.demo || project.github;
-                            if (targetUrl) {
-                                window.open(targetUrl, '_blank', 'noopener,noreferrer');
-                            }
-                        }}
-                    >
-                        {project.thumbnail && (
-                            <div className="aspect-video bg-[var(--border)] relative overflow-hidden">
-                                <Image
-                                    src={project.thumbnail}
-                                    alt={project.title}
-                                    fill
-                                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                                    onError={(e) => {
-                                        e.currentTarget.style.display = 'none';
-                                    }}
-                                />
-                            </div>
-                        )}
+                        <div className="flex flex-wrap gap-2 mb-8">
+                            {project.stack.map((tech) => (
+                                <span
+                                    key={tech}
+                                    className="text-xs px-4 py-2 border border-[var(--border)] rounded-sm lowercase font-medium text-[var(--muted)] group-hover:border-[var(--fg)] group-hover:text-[var(--fg)] transition-all duration-300"
+                                >
+                                    {tech.toLowerCase()}
+                                </span>
+                            ))}
+                        </div>
 
-                        <div className="p-6">
-                            <h3 className="text-xl font-bold mb-2 lowercase">{project.title.toLowerCase()}</h3>
-                            <p className="text-sm text-[var(--muted)] mb-4">{project.summary.toLowerCase()}</p>
-
-                            {/* Tech stack */}
-                            <div className="flex flex-wrap gap-3 mb-6">
-                                {project.stack.map((tech) => (
-                                    <span
-                                        key={tech}
-                                        className="text-base px-6 py-3 bg-[var(--border)] rounded-sm lowercase font-medium"
-                                    >
-                                        {tech.toLowerCase()}
-                                    </span>
-                                ))}
-                            </div>
-
-                            {/* Links */}
-                            <div className="flex gap-4 pt-4 border-t border-[var(--border)]">
+                        <div className="flex gap-6 pt-6 border-t border-[var(--border)]">
+                            <a
+                                href={project.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-xs tracking-wider hover:text-[var(--fg)] text-[var(--muted)] transition-colors lowercase font-semibold"
+                                onClick={(e) => e.stopPropagation()}
+                            >
+                                github →
+                            </a>
+                            {project.demo && (
                                 <a
-                                    href={project.github}
+                                    href={project.demo}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-xs hover:text-[var(--fg)] text-[var(--muted)] transition-colors lowercase"
+                                    className="text-xs tracking-wider flex items-center gap-2 hover:opacity-70 transition-opacity lowercase font-semibold"
                                     onClick={(e) => e.stopPropagation()}
                                 >
-                                    github
+                                    live demo →
                                 </a>
-                                {project.demo && (
-                                    <a
-                                        href={project.demo}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-xs flex items-center gap-2 hover:opacity-70 transition-opacity"
-                                        onClick={(e) => e.stopPropagation()}
-                                    >
-                                        <svg
-                                            className="w-3 h-3"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                        </svg>
-                                        live demo
-                                    </a>
-                                )}
-                            </div>
+                            )}
                         </div>
-                    </motion.div>
-                ))}
-            </motion.div>
+                    </div>
 
-            {filteredProjects.length === 0 && (
-                <div className="text-center py-24 text-[var(--muted)]">
-                    <p>No projects match the selected filter.</p>
-                </div>
-            )}
-        </div>
+                    <div className="absolute bottom-0 left-0 w-full h-[2px] bg-[var(--fg)] scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left" />
+                </motion.div>
+            ))}
+        </motion.div>
     );
 }

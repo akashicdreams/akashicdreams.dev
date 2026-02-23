@@ -9,7 +9,7 @@ import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
 const navItems = [
-    { label: 'services', href: '/services/website-development' },
+    { label: 'services', href: '/services' },
     { label: 'software', href: '/software' },
     { label: 'photos', href: '/photos' },
     { label: 'about', href: '/about' },
