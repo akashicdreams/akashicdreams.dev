@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -7,6 +8,7 @@ import { Service } from '@/lib/services';
 import { MatrixRain } from '@/components/ui/matrix-rain';
 import { FloatingParticles } from '@/components/ui/floating-particles';
 import { AsciiArtFigure } from '@/components/ui/ascii-figure';
+import { useServiceTransition } from '@/components/providers/service-transition-provider';
 
 const shapes: Record<string, 'diamond' | 'circle' | 'triangle' | 'hexagon' | 'code-block'> = {
     'website-development': 'code-block',
@@ -24,6 +26,11 @@ interface ServicePageClientProps {
 
 export function ServicePageClient({ service, allServices }: ServicePageClientProps) {
     const asciiShape = shapes[service.slug] || 'diamond';
+    const { clearTransition } = useServiceTransition();
+
+    useEffect(() => {
+        clearTransition();
+    }, [clearTransition]);
 
     return (
         <div className="min-h-screen bg-[var(--bg)] overflow-hidden">

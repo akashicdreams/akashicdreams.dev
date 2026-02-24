@@ -45,10 +45,10 @@ export function ContactForm() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             onSubmit={handleSubmit}
-            className="space-y-8"
+            className="space-y-10"
         >
             <div>
-                <label htmlFor="name" className="block text-sm lowercase tracking-wider mb-3 text-[var(--muted)] font-semibold">
+                <label htmlFor="name" className="block text-sm lowercase tracking-wider mb-4 text-[var(--muted)] font-semibold">
                     name
                 </label>
                 <input
@@ -57,12 +57,12 @@ export function ContactForm() {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-5 py-4 text-base bg-transparent border border-[var(--border)] rounded-sm focus:border-[var(--fg)] outline-none transition-all"
+                    className="w-full px-6 py-5 text-base bg-transparent border border-[var(--border)] rounded-sm focus:border-[var(--fg)] outline-none transition-all"
                 />
             </div>
 
             <div>
-                <label htmlFor="email" className="block text-sm lowercase tracking-wider mb-3 text-[var(--muted)] font-semibold">
+                <label htmlFor="email" className="block text-sm lowercase tracking-wider mb-4 text-[var(--muted)] font-semibold">
                     email
                 </label>
                 <input
@@ -71,32 +71,34 @@ export function ContactForm() {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-5 py-4 text-base bg-transparent border border-[var(--border)] rounded-sm focus:border-[var(--fg)] outline-none transition-all"
+                    className="w-full px-6 py-5 text-base bg-transparent border border-[var(--border)] rounded-sm focus:border-[var(--fg)] outline-none transition-all"
                 />
             </div>
 
             <div>
-                <label htmlFor="message" className="block text-sm lowercase tracking-wider mb-3 text-[var(--muted)] font-semibold">
+                <label htmlFor="message" className="block text-sm lowercase tracking-wider mb-4 text-[var(--muted)] font-semibold">
                     message
                 </label>
                 <textarea
                     id="message"
                     required
-                    rows={6}
+                    rows={7}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-5 py-4 text-base bg-transparent border border-[var(--border)] rounded-sm focus:border-[var(--fg)] outline-none transition-all resize-none"
+                    className="w-full px-6 py-5 text-base bg-transparent border border-[var(--border)] rounded-sm focus:border-[var(--fg)] outline-none transition-all resize-none"
                 />
             </div>
 
-            <button
-                type="submit"
-                disabled={status === 'loading' || status === 'success'}
-                className="w-full px-12 py-5 text-lg lowercase tracking-wider font-bold rounded-sm hover:opacity-80 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                style={{ backgroundColor: 'var(--fg)', color: 'var(--bg)' }}
-            >
-                {status === 'loading' ? 'sending...' : status === 'success' ? 'message sent!' : 'send'}
-            </button>
+            <div className="pt-2">
+                <button
+                    type="submit"
+                    disabled={status === 'loading' || status === 'success'}
+                    className="w-full px-12 py-5 text-lg lowercase tracking-wider font-bold rounded-sm hover:opacity-80 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    style={{ backgroundColor: 'var(--fg)', color: 'var(--bg)' }}
+                >
+                    {status === 'loading' ? 'sending...' : status === 'success' ? 'message sent!' : 'send'}
+                </button>
+            </div>
 
             {status === 'success' && (
                 <p className="text-base text-green-500 text-center font-medium">
@@ -109,10 +111,6 @@ export function ContactForm() {
                     {errorMessage}
                 </p>
             )}
-
-            <p className="text-sm text-[var(--muted)] text-center">
-                we typically respond within 24-48 hours.
-            </p>
         </motion.form>
     );
 }

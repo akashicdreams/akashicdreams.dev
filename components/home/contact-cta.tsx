@@ -4,6 +4,25 @@ import { motion } from 'framer-motion';
 import { ContactForm } from '@/components/contact/contact-form';
 import { MatrixRain } from '@/components/ui/matrix-rain';
 import { FloatingParticles } from '@/components/ui/floating-particles';
+import { InstagramIcon, FacebookIcon, LinkedInIcon } from '@/components/ui/social-icons';
+
+const socialLinks = [
+    {
+        label: 'linkedin',
+        href: 'https://www.linkedin.com/company/akashic-dreams/',
+        icon: LinkedInIcon,
+    },
+    {
+        label: 'instagram',
+        href: 'https://www.instagram.com/akashicdreams.dev/',
+        icon: InstagramIcon,
+    },
+    {
+        label: 'facebook',
+        href: 'https://www.facebook.com/profile.php?id=61586506872768',
+        icon: FacebookIcon,
+    },
+];
 
 export function ContactCTA() {
     return (
@@ -80,22 +99,19 @@ export function ContactCTA() {
                                 <h3 className="text-xs tracking-[0.3em] text-[var(--muted)] lowercase mb-5 font-semibold">
                                     social
                                 </h3>
-                                <div className="flex flex-col gap-4">
-                                    {[
-                                        { label: 'linkedin', href: 'https://www.linkedin.com/company/akashic-dreams/' },
-                                        { label: 'instagram', href: 'https://www.instagram.com/akashicdreams.dev/' },
-                                        { label: 'facebook', href: 'https://www.facebook.com/profile.php?id=61586506872768' },
-                                    ].map((link) => (
-                                        <a
+                                <div className="flex items-center gap-4">
+                                    {socialLinks.map((link) => (
+                                        <motion.a
                                             key={link.label}
                                             href={link.href}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="text-xl hover:opacity-70 transition-opacity lowercase group inline-flex items-center gap-2"
+                                            whileHover={{ scale: 1.15, y: -2 }}
+                                            className="w-11 h-11 flex items-center justify-center border border-[var(--border)] rounded-sm hover:border-[var(--fg)] transition-colors duration-300"
+                                            aria-label={link.label}
                                         >
-                                            {link.label}
-                                            <span className="text-[var(--muted)] group-hover:translate-x-1 transition-transform duration-300">→</span>
-                                        </a>
+                                            <link.icon className="w-5 h-5" />
+                                        </motion.a>
                                     ))}
                                 </div>
                             </div>
@@ -108,18 +124,8 @@ export function ContactCTA() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.3 }}
-                        className="border border-[var(--border)] rounded-sm p-10 md:p-14 relative overflow-hidden"
                     >
-                        {/* Subtle gradient inside the form card */}
-                        <div
-                            className="absolute inset-0 pointer-events-none opacity-30"
-                            style={{
-                                background: 'radial-gradient(ellipse at top right, rgba(255,255,255,0.03) 0%, transparent 60%)',
-                            }}
-                        />
-                        <div className="relative z-10">
-                            <ContactForm />
-                        </div>
+                        <ContactForm />
                     </motion.div>
                 </div>
             </div>

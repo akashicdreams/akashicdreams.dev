@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Rajdhani } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/providers/theme-provider';
+import { ServiceTransitionProvider } from '@/components/providers/service-transition-provider';
 import { Navigation } from '@/components/navigation';
 import { Footer } from '@/components/footer';
 
@@ -36,9 +37,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${rajdhani.variable} antialiased`}>
         <ThemeProvider>
-          <Navigation />
-          <main>{children}</main>
-          <Footer />
+          <ServiceTransitionProvider>
+            <Navigation />
+            <main>{children}</main>
+            <Footer />
+          </ServiceTransitionProvider>
         </ThemeProvider>
       </body>
     </html>
