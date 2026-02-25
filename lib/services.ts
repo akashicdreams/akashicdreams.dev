@@ -18,7 +18,7 @@ export const services: Service[] = [
     description: "responsive, fast, and built to convert.",
     startingPrice: 200,
     currency: "EUR",
-    image: "/services/web.png",
+    image: "/images/services/web.png",
     features: [
       "responsive design for all devices",
       "seo optimization & meta tags",
@@ -39,7 +39,7 @@ export const services: Service[] = [
     description: "consistent content that grows your presence.",
     startingPrice: 100,
     currency: "EUR/mo",
-    image: "/services/social_media.png",
+    image: "/images/services/social_media.png",
     features: [
       "content creation & copywriting",
       "posting schedule & calendar",
@@ -60,7 +60,7 @@ export const services: Service[] = [
     description: "one codebase, native feel, deployed everywhere.",
     startingPrice: 1000,
     currency: "EUR",
-    image: "/services/mobile.png",
+    image: "/images/services/mobile.png",
     features: [
       "cross-platform (ios & android)",
       "push notifications",
@@ -81,7 +81,7 @@ export const services: Service[] = [
     description: "cinematic production from concept to final cut.",
     startingPrice: 200,
     currency: "EUR",
-    image: "/services/videography.png",
+    image: "/images/services/videography.png",
     features: [
       "event & occasion coverage",
       "promotional videos",
@@ -102,7 +102,7 @@ export const services: Service[] = [
     description: "professional coverage for any occasion.",
     startingPrice: 200,
     currency: "EUR",
-    image: "/services/photography.png",
+    image: "/images/services/photography.png",
     features: [
       "multi-hour event coverage",
       "quick turnaround delivery",
@@ -123,7 +123,7 @@ export const services: Service[] = [
     description: "logo, colors, typography, and guidelines.",
     startingPrice: 200,
     currency: "EUR",
-    image: "/services/branding.png",
+    image: "/images/services/branding.png",
     features: [
       "logo design & variations",
       "color palette definition",

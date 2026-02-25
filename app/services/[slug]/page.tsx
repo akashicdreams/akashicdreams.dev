@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getServiceBySlug, getAllServiceSlugs, services } from '@/lib/services';
+import { getPortfolioByService } from '@/lib/portfolio';
 import { ServicePageClient } from '@/components/services/service-page-client';
 
 interface ServicePageProps {
@@ -30,10 +31,13 @@ export default async function ServicePage({ params }: ServicePageProps) {
         notFound();
     }
 
+    const portfolioItems = getPortfolioByService(slug);
+
     return (
         <ServicePageClient
             service={service}
             allServices={services}
+            portfolioItems={portfolioItems}
         />
     );
 }

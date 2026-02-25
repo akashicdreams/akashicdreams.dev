@@ -17,11 +17,11 @@ export interface CarouselItem {
 interface FocusedCarouselProps {
     items: CarouselItem[];
     emptyMessage?: string;
-    type: 'software' | 'photos';
+    type?: string;
     aspectRatio?: 'video' | 'square';
 }
 
-export function FocusedCarousel({ items, emptyMessage = "No items found.", type, aspectRatio = 'video' }: FocusedCarouselProps) {
+export function FocusedCarousel({ items, emptyMessage = "No items found.", type = 'default', aspectRatio = 'video' }: FocusedCarouselProps) {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     // Reset index when items change (e.g. switching tabs)

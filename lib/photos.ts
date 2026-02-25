@@ -11,7 +11,7 @@ export interface PhotoAlbum {
     images: string[];
 }
 
-const photosDirectory = path.join(process.cwd(), 'public', 'photos');
+const photosDirectory = path.join(process.cwd(), 'public', 'albums');
 
 export function getAllPhotoAlbums(): PhotoAlbum[] {
     try {
@@ -46,7 +46,7 @@ export function getAllPhotoAlbums(): PhotoAlbum[] {
             }
 
             const title = meta.title || folder.replace(/[-_]/g, ' ');
-            const images = imageFiles.map((file) => `/photos/${folder}/${file}`);
+            const images = imageFiles.map((file) => `/albums/${folder}/${file}`);
 
             return {
                 slug: folder,
@@ -54,7 +54,7 @@ export function getAllPhotoAlbums(): PhotoAlbum[] {
                 date: meta.date,
                 location: meta.location,
                 description: meta.description,
-                cover: `/photos/${folder}/${cover}`,
+                cover: `/albums/${folder}/${cover}`,
                 images,
             } as PhotoAlbum;
         });
@@ -97,7 +97,7 @@ export function getPhotoAlbumBySlug(slug: string): PhotoAlbum | null {
         }
 
         const title = meta.title || slug.replace(/[-_]/g, ' ');
-        const images = imageFiles.map((file) => `/photos/${slug}/${file}`);
+        const images = imageFiles.map((file) => `/albums/${slug}/${file}`);
 
         return {
             slug,
@@ -105,7 +105,7 @@ export function getPhotoAlbumBySlug(slug: string): PhotoAlbum | null {
             date: meta.date,
             location: meta.location,
             description: meta.description,
-            cover: `/photos/${slug}/${cover}`,
+            cover: `/albums/${slug}/${cover}`,
             images,
         } as PhotoAlbum;
     } catch (error) {

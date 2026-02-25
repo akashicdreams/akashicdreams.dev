@@ -5,9 +5,11 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Service } from '@/lib/services';
+import type { PortfolioItem } from '@/lib/portfolio';
 import { MatrixRain } from '@/components/ui/matrix-rain';
 import { FloatingParticles } from '@/components/ui/floating-particles';
 import { AsciiArtFigure } from '@/components/ui/ascii-figure';
+import { PortfolioSection } from '@/components/portfolio/portfolio-section';
 import { useServiceTransition } from '@/components/providers/service-transition-provider';
 
 const shapes: Record<string, 'diamond' | 'circle' | 'triangle' | 'hexagon' | 'code-block'> = {
@@ -22,9 +24,10 @@ const shapes: Record<string, 'diamond' | 'circle' | 'triangle' | 'hexagon' | 'co
 interface ServicePageClientProps {
     service: Service;
     allServices: Service[];
+    portfolioItems?: PortfolioItem[];
 }
 
-export function ServicePageClient({ service, allServices }: ServicePageClientProps) {
+export function ServicePageClient({ service, allServices, portfolioItems = [] }: ServicePageClientProps) {
     const asciiShape = shapes[service.slug] || 'diamond';
     const { clearTransition } = useServiceTransition();
 
@@ -177,6 +180,13 @@ export function ServicePageClient({ service, allServices }: ServicePageClientPro
                     </div>
                 </div>
             </section>
+
+            {portfolioItems.length > 0 && (
+                <>
+                    <div className="section-divider" />
+                    <PortfolioSection serviceSlug={service.slug} items={portfolioItems} />
+                </>
+            )}
 
             <div className="section-divider" />
 

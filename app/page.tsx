@@ -1,13 +1,12 @@
-import { getAllSoftwareProjects } from '@/lib/software';
-import { getAllPhotoAlbums } from '@/lib/photos';
+import { getFeaturedPortfolioItems } from '@/lib/portfolio';
+import { services } from '@/lib/services';
 import { Hero } from '@/components/home/hero';
 import { PillarToggle } from '@/components/home/pillar-toggle';
 import { ServicesPricing } from '@/components/home/services-pricing';
 import { ContactCTA } from '@/components/home/contact-cta';
 
 export default async function HomePage() {
-  const projects = getAllSoftwareProjects();
-  const albums = getAllPhotoAlbums();
+  const featuredItems = getFeaturedPortfolioItems();
 
   return (
     <div className="bg-[var(--bg)] min-h-screen">
@@ -23,7 +22,7 @@ export default async function HomePage() {
       <div className="section-divider" />
 
       {/* Portfolio Showcase */}
-      <PillarToggle projects={projects} albums={albums} />
+      <PillarToggle portfolioByService={featuredItems} services={services} />
 
       {/* Divider */}
       <div className="section-divider" />

@@ -168,20 +168,20 @@ export function Hero() {
                             className="flex flex-wrap gap-5"
                         >
                             <Link
-                                href="/software"
+                                href="/services"
                                 className="group relative px-12 py-5 text-base lowercase tracking-wider border-2 border-[var(--fg)] rounded-sm overflow-hidden transition-all duration-500"
                             >
                                 <span className="relative z-10 group-hover:text-[var(--bg)] transition-colors duration-500">
-                                    software
+                                    services
                                 </span>
                                 <div className="absolute inset-0 bg-[var(--fg)] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                             </Link>
                             <Link
-                                href="/photos"
+                                href="/portfolio"
                                 className="group relative px-12 py-5 text-base lowercase tracking-wider border-2 border-[var(--fg)] rounded-sm overflow-hidden transition-all duration-500"
                             >
                                 <span className="relative z-10 group-hover:text-[var(--bg)] transition-colors duration-500">
-                                    photos
+                                    portfolio
                                 </span>
                                 <div className="absolute inset-0 bg-[var(--fg)] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                             </Link>

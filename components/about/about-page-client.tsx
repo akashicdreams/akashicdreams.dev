@@ -35,19 +35,19 @@ const team = [
         name: 'șorecău adrian-vasile',
         role: 'photographer',
         number: '01',
-        image: '/team/photographer.png',
+        image: '/images/team/photographer.png',
     },
     {
         name: 'șorecău adrian-vasile',
         role: 'software developer',
         number: '02',
-        image: '/team/software_developer.png',
+        image: '/images/team/software_developer.png',
     },
     {
         name: 'șorecău adrian-vasile',
         role: 'administrator',
         number: '03',
-        image: '/team/admin.png',
+        image: '/images/team/admin.png',
     },
 ];
 
