@@ -97,6 +97,20 @@ export function ContactCTA() {
 
                             <div>
                                 <h3 className="text-xs tracking-[0.3em] text-[var(--muted)] lowercase mb-5 font-semibold">
+                                    address
+                                </h3>
+                                <a
+                                    href="https://maps.app.goo.gl/TjjrN1sErVWQexCAA"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-xl hover:opacity-70 transition-opacity lowercase"
+                                >
+                                    plopului street, 2h, sângeorz-băi, romania
+                                </a>
+                            </div>
+
+                            <div>
+                                <h3 className="text-xs tracking-[0.3em] text-[var(--muted)] lowercase mb-5 font-semibold">
                                     social
                                 </h3>
                                 <div className="flex items-center gap-4">
@@ -128,6 +142,7 @@ export function ContactCTA() {
                         <ContactForm />
                     </motion.div>
                 </div>
+
             </div>
 
             {/* Decorative rotating shapes */}

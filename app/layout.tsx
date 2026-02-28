@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/components/providers/theme-provider';
 import { ServiceTransitionProvider } from '@/components/providers/service-transition-provider';
 import { Navigation } from '@/components/navigation';
 import { Footer } from '@/components/footer';
+import { LoadingScreen } from '@/components/loading-screen';
 
 const rajdhani = Rajdhani({
   weight: ['400', '700'],
@@ -38,6 +39,7 @@ export default function RootLayout({
       <body className={`${rajdhani.variable} antialiased`}>
         <ThemeProvider>
           <ServiceTransitionProvider>
+            <LoadingScreen />
             <Navigation />
             <main>{children}</main>
             <Footer />

@@ -213,6 +213,25 @@ export function ContactPageClient() {
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.5, delay: 0.5 }}
                                 >
+                                    <h3 className="text-xs tracking-[0.3em] text-[var(--muted)] lowercase mb-4 font-semibold">
+                                        address
+                                    </h3>
+                                    <a
+                                        href="https://maps.app.goo.gl/TjjrN1sErVWQexCAA"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-xl hover:opacity-70 transition-opacity lowercase"
+                                    >
+                                        plopului street, 2h, sângeorz-băi, romania
+                                    </a>
+                                </motion.div>
+
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: 0.6 }}
+                                >
                                     <h3 className="text-xs tracking-[0.3em] text-[var(--muted)] lowercase mb-5 font-semibold">
                                         social
                                     </h3>
@@ -226,7 +245,7 @@ export function ContactPageClient() {
                                                 initial={{ opacity: 0, scale: 0.8 }}
                                                 whileInView={{ opacity: 1, scale: 1 }}
                                                 viewport={{ once: true }}
-                                                transition={{ duration: 0.4, delay: 0.6 + i * 0.1 }}
+                                                transition={{ duration: 0.4, delay: 0.7 + i * 0.1 }}
                                                 whileHover={{ scale: 1.15, y: -2 }}
                                                 className="w-11 h-11 flex items-center justify-center border border-[var(--border)] rounded-sm hover:border-[var(--fg)] transition-colors duration-300"
                                                 aria-label={link.label}
@@ -249,6 +268,46 @@ export function ContactPageClient() {
                             <ContactForm />
                         </motion.div>
                     </div>
+                </div>
+            </section>
+
+            <SectionDivider />
+
+            {/* ─── GOOGLE MAPS ─── */}
+            <section className="relative py-20 md:py-28 overflow-hidden">
+                <div className="relative z-10 container max-w-6xl mx-auto px-6">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="flex flex-col items-center text-center mb-12"
+                    >
+                        <span className="text-xs tracking-[0.4em] text-[var(--muted)] lowercase font-semibold mb-6">
+                            location
+                        </span>
+                        <h2 className="text-4xl md:text-6xl font-bold lowercase tracking-tighter">
+                            find us here
+                        </h2>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="relative w-full aspect-video md:aspect-21/9 rounded-lg overflow-hidden border border-(--border)"
+                    >
+                        <iframe
+                            src="https://www.google.com/maps?q=Strada+Plopului+2H,+Sangeorz-Bai,+Bistrita-Nasaud,+Romania&output=embed"
+                            className="absolute inset-0 w-full h-full"
+                            style={{ border: 0, filter: 'grayscale(0.8) contrast(1.1) brightness(0.9)' }}
+                            allowFullScreen
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            title="akashic dreams office location"
+                        />
+                    </motion.div>
                 </div>
             </section>
 
