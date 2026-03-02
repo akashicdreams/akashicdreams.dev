@@ -17,7 +17,7 @@ const shapes: Record<string, 'diamond' | 'circle' | 'triangle' | 'hexagon' | 'co
     'social-media-management': 'hexagon',
     'mobile-application': 'diamond',
     'videography': 'triangle',
-    'event-photography': 'circle',
+    'photography': 'circle',
     'brand-identity': 'hexagon',
 };
 

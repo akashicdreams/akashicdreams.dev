@@ -39,7 +39,7 @@ export function Navigation() {
         <motion.nav
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="fixed top-0 left-0 right-0 z-50 border-b border-[var(--border)] bg-[var(--bg)]/80 backdrop-blur-md"
+            className="sticky top-0 left-0 right-0 z-50 border-b border-[var(--border)] bg-[var(--bg)]/80 backdrop-blur-md md:fixed"
         >
             <div className="container flex items-center justify-between h-20 gap-4">
                 <Link href="/" className="flex items-center flex-shrink-0">

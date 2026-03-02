@@ -41,7 +41,7 @@ export default function RootLayout({
           <ServiceTransitionProvider>
             <LoadingScreen />
             <Navigation />
-            <main>{children}</main>
+            <main className="pt-0 md:pt-20">{children}</main>
             <Footer />
           </ServiceTransitionProvider>
         </ThemeProvider>

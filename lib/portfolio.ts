@@ -45,8 +45,8 @@ export interface VideographyProject extends BasePortfolioItem {
   youtubeUrl: string;
 }
 
-export interface EventPhotographyProject extends BasePortfolioItem {
-  type: 'event-photography';
+export interface PhotographyProject extends BasePortfolioItem {
+  type: 'photography';
   albumSlug: string;
   location?: string;
   album?: PhotoAlbum | null;
@@ -62,7 +62,7 @@ export type PortfolioItem =
   | SocialMediaProject
   | MobileAppProject
   | VideographyProject
-  | EventPhotographyProject
+  | PhotographyProject
   | BrandIdentityProject;
 
 type ServiceSlug =
@@ -70,7 +70,7 @@ type ServiceSlug =
   | 'social-media-management'
   | 'mobile-application'
   | 'videography'
-  | 'event-photography'
+  | 'photography'
   | 'brand-identity';
 
 const contentBase = path.join(process.cwd(), 'content', 'portfolio');
@@ -164,12 +164,12 @@ function buildVideographyProjects(): VideographyProject[] {
   }));
 }
 
-function buildEventPhotographyProjects(): EventPhotographyProject[] {
-  return parseMarkdownFiles('event-photography').map(({ slug, data, content }) => {
+function buildPhotographyProjects(): PhotographyProject[] {
+  return parseMarkdownFiles('photography').map(({ slug, data, content }) => {
     const albumSlug = data.albumSlug || slug;
     const album = getPhotoAlbumBySlug(albumSlug);
     return {
-      type: 'event-photography',
+      type: 'photography',
       slug,
       title: data.title || album?.title || slug,
       ...resolveClient(data),
@@ -201,7 +201,7 @@ const builders: Record<ServiceSlug, () => PortfolioItem[]> = {
   'social-media-management': buildSocialMediaProjects,
   'mobile-application': buildMobileAppProjects,
   'videography': buildVideographyProjects,
-  'event-photography': buildEventPhotographyProjects,
+  'photography': buildPhotographyProjects,
   'brand-identity': buildBrandIdentityProjects,
 };
 
@@ -281,7 +281,7 @@ export function getAllClientsWithPortfolio(): ClientWithPortfolio[] {
     'social-media-management': 'social media management',
     'mobile-application': 'mobile application',
     'videography': 'videography',
-    'event-photography': 'event photography',
+    'photography': 'photography',
     'brand-identity': 'brand identity',
   };
 

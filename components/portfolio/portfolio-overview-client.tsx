@@ -67,8 +67,10 @@ function getCardLink(item: PortfolioItem): string | undefined {
       return item.url;
     case 'mobile-application':
       return item.website || item.github;
-    case 'event-photography':
-      return `/services/event-photography`;
+    case 'photography':
+      return `/services/photography`;
+    case 'videography':
+      return `/services/videography`;
     default:
       return undefined;
   }
@@ -79,7 +81,7 @@ function getItemThumbnail(item: PortfolioItem): string | undefined {
     case 'website-development':
     case 'mobile-application':
       return item.thumbnail;
-    case 'event-photography':
+    case 'photography':
       return item.album?.cover;
     case 'videography': {
       const match = item.youtubeUrl?.match(

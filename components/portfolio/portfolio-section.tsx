@@ -8,7 +8,7 @@ import { MobileAppShowcase } from './mobile-app-showcase';
 import { VideoShowcase } from './video-showcase';
 import { PhotoAlbumShowcase } from './photo-album-showcase';
 import { BrandShowcase } from './brand-showcase';
-import type { WebsiteProject, SocialMediaProject, MobileAppProject, VideographyProject, EventPhotographyProject, BrandIdentityProject } from '@/lib/portfolio';
+import type { WebsiteProject, SocialMediaProject, MobileAppProject, VideographyProject, PhotographyProject, BrandIdentityProject } from '@/lib/portfolio';
 
 interface PortfolioSectionProps {
   serviceSlug: string;
@@ -52,8 +52,8 @@ function ShowcaseRouter({ serviceSlug, items }: PortfolioSectionProps) {
       return <MobileAppShowcase items={items as MobileAppProject[]} />;
     case 'videography':
       return <VideoShowcase items={items as VideographyProject[]} />;
-    case 'event-photography':
-      return <PhotoAlbumShowcase items={items as EventPhotographyProject[]} />;
+    case 'photography':
+      return <PhotoAlbumShowcase items={items as PhotographyProject[]} />;
     case 'brand-identity':
       return <BrandShowcase items={items as BrandIdentityProject[]} />;
     default:

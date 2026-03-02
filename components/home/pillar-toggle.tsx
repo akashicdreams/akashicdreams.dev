@@ -32,13 +32,13 @@ function portfolioItemToCarousel(item: PortfolioItem): CarouselItem {
                 link: item.website || item.github,
                 external: true,
             };
-        case 'event-photography':
+        case 'photography':
             return {
                 id: item.slug,
                 title: item.title,
                 subtitle: item.location,
                 image: item.album?.cover,
-                link: `/services/event-photography`,
+                link: `/services/photography`,
                 external: false,
             };
         case 'videography': {

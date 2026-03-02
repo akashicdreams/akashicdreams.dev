@@ -4,10 +4,10 @@ import { useState, useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import type { EventPhotographyProject } from '@/lib/portfolio';
+import type { PhotographyProject } from '@/lib/portfolio';
 
 interface PhotoAlbumShowcaseProps {
-  items: EventPhotographyProject[];
+  items: PhotographyProject[];
 }
 
 function Lightbox({

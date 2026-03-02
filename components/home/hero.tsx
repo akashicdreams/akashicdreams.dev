@@ -8,6 +8,14 @@ import { useTheme } from 'next-themes';
 import { MatrixRain } from '@/components/ui/matrix-rain';
 import { FloatingParticles } from '@/components/ui/floating-particles';
 
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(true);
+  useEffect(() => {
+    setIsMobile(window.matchMedia('(max-width: 768px)').matches);
+  }, []);
+  return isMobile;
+}
+
 const bubbles = [
     { size: 280, x: '-18%', y: '50%', delay: 0, duration: 7 },
     { size: 200, x: '55%', y: '60%', delay: 1.2, duration: 8 },
@@ -30,6 +38,7 @@ const glowOrbs = [
 export function Hero() {
     const { theme } = useTheme();
     const [mounted, setMounted] = useState(false);
+    const isMobile = useIsMobile();
     const containerRef = useRef<HTMLDivElement>(null);
 
     const mouseX = useMotionValue(0);
@@ -69,13 +78,15 @@ export function Hero() {
 
     return (
         <section className="min-h-screen flex flex-col relative">
-            {/* Matrix rain background */}
-            <div className="absolute inset-0 overflow-hidden">
-                <MatrixRain opacity={0.07} speed={0.8} density={0.4} />
-            </div>
+            {/* Matrix rain background - disabled on mobile for performance */}
+            {!isMobile && (
+                <div className="absolute inset-0 overflow-hidden">
+                    <MatrixRain opacity={0.07} speed={0.8} density={0.4} />
+                </div>
+            )}
 
-            {/* Ambient glow orbs */}
-            {glowOrbs.map((orb, i) => (
+            {/* Ambient glow orbs - disabled on mobile for performance */}
+            {!isMobile && glowOrbs.map((orb, i) => (
                 <motion.div
                     key={`glow-${i}`}
                     className="absolute rounded-full pointer-events-none"
@@ -102,8 +113,8 @@ export function Hero() {
                 />
             ))}
 
-            {/* Floating particles */}
-            <FloatingParticles count={30} minSize={1} maxSize={4} />
+            {/* Floating particles - reduced count on mobile */}
+            <FloatingParticles count={isMobile ? 8 : 30} minSize={1} maxSize={isMobile ? 2 : 4} />
 
             {/* Scan line effect */}
             <div className="absolute inset-0 scan-line pointer-events-none" />
@@ -112,11 +123,11 @@ export function Hero() {
                 ref={containerRef}
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
-                className="flex-1 flex items-center relative overflow-hidden"
+                className="flex-1 flex items-start md:items-center relative overflow-hidden"
             >
                 <div className="absolute inset-0 gradient-radial pointer-events-none" />
 
-                <div className="container z-10 flex flex-col lg:flex-row items-center lg:items-center gap-20 lg:gap-12 py-24 lg:py-0">
+                <div className="container z-10 flex flex-col lg:flex-row items-center lg:items-center gap-20 lg:gap-12 pt-16 pb-24 lg:py-0">
                     {/* left — text + cta */}
                     <motion.div
                         initial={{ opacity: 0, x: -40 }}
@@ -194,44 +205,48 @@ export function Hero() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
                         className="flex-1 flex items-center justify-center relative"
-                        style={{ rotateX, rotateY, transformPerspective: 1000 }}
+                        style={!isMobile ? { rotateX, rotateY, transformPerspective: 1000 } : undefined}
                     >
                         <div className="relative w-80 h-80 md:w-[26rem] md:h-[26rem] lg:w-[32rem] lg:h-[32rem]">
-                            {/* Outer ring */}
-                            <motion.div
-                                className="absolute inset-[-20px] rounded-full border pointer-events-none"
-                                style={{
-                                    borderColor: isLight
-                                        ? 'rgba(0,0,0,0.06)'
-                                        : 'rgba(255,255,255,0.06)',
-                                }}
-                                animate={{ rotate: 360 }}
-                                transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-                            />
+                            {/* Outer ring - disabled on mobile */}
+                            {!isMobile && (
+                                <motion.div
+                                    className="absolute inset-[-20px] rounded-full border pointer-events-none"
+                                    style={{
+                                        borderColor: isLight
+                                            ? 'rgba(0,0,0,0.06)'
+                                            : 'rgba(255,255,255,0.06)',
+                                    }}
+                                    animate={{ rotate: 360 }}
+                                    transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
+                                />
+                            )}
 
-                            {/* Inner ring */}
-                            <motion.div
-                                className="absolute inset-[-50px] rounded-full border pointer-events-none"
-                                style={{
-                                    borderColor: isLight
-                                        ? 'rgba(0,0,0,0.03)'
-                                        : 'rgba(255,255,255,0.03)',
-                                }}
-                                animate={{ rotate: -360 }}
-                                transition={{ duration: 45, repeat: Infinity, ease: 'linear' }}
-                            />
+                            {/* Inner ring - disabled on mobile */}
+                            {!isMobile && (
+                                <motion.div
+                                    className="absolute inset-[-50px] rounded-full border pointer-events-none"
+                                    style={{
+                                        borderColor: isLight
+                                            ? 'rgba(0,0,0,0.03)'
+                                            : 'rgba(255,255,255,0.03)',
+                                    }}
+                                    animate={{ rotate: -360 }}
+                                    transition={{ duration: 45, repeat: Infinity, ease: 'linear' }}
+                                />
+                            )}
 
-                            {/* Breathing logo */}
+                            {/* Breathing logo - disabled on mobile */}
                             <motion.div
-                                animate={{
+                                animate={!isMobile ? {
                                     scale: [1, 1.06, 1],
                                     opacity: [1, 0.88, 1],
-                                }}
-                                transition={{
+                                } : {}}
+                                transition={!isMobile ? {
                                     duration: 4,
                                     repeat: Infinity,
                                     ease: 'easeInOut',
-                                }}
+                                } : {}}
                                 className="w-full h-full relative z-10"
                             >
                                 {mounted ? (
@@ -250,8 +265,8 @@ export function Hero() {
                                 )}
                             </motion.div>
 
-                            {/* Decorative gradient bubbles */}
-                            {bubbles.map((bubble, i) => (
+                            {/* Decorative gradient bubbles - disabled on mobile (backdrop-filter is expensive) */}
+                            {!isMobile && bubbles.map((bubble, i) => (
                                 <motion.div
                                     key={i}
                                     className="absolute rounded-full pointer-events-none"
@@ -287,7 +302,7 @@ export function Hero() {
                 </div>
             </div>
 
-            {/* Scroll indicator */}
+            {/* Scroll indicator - no bounce animation on mobile */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -296,8 +311,8 @@ export function Hero() {
             >
                 <span className="text-xs tracking-[0.3em] text-[var(--muted)] lowercase">scroll</span>
                 <motion.div
-                    animate={{ y: [0, 8, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+                    animate={!isMobile ? { y: [0, 8, 0] } : {}}
+                    transition={!isMobile ? { duration: 1.5, repeat: Infinity, ease: 'easeInOut' } : {}}
                     className="w-[1px] h-8 bg-gradient-to-b from-[var(--muted)] to-transparent"
                 />
             </motion.div>

@@ -1,6 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'img.youtube.com',
+        pathname: '/vi/**',
+      },
+    ],
+  },
   outputFileTracingExcludes: {
     '*': [
       'public/albums/**/*',
@@ -21,7 +30,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/photos/:slug',
-        destination: '/services/event-photography',
+        destination: '/services/photography',
+        permanent: true,
+      },
+      {
+        source: '/services/event-photography',
+        destination: '/services/photography',
         permanent: true,
       },
     ];
