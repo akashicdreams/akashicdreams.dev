@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- Pure black background — matches app icon exactly -->
+  <rect width="1024" height="1024" fill="#000000"/>
+
+  <!-- Left eye — white vertical oval -->
+  <ellipse cx="330" cy="512" rx="168" ry="272" fill="white"/>
+  <!-- Left pupil -->
+  <circle cx="355" cy="488" r="88" fill="black"/>
+  <!-- Left glare -->
+  <circle cx="318" cy="455" r="32" fill="white"/>
+
+  <!-- Right eye — white vertical oval -->
+  <ellipse cx="694" cy="512" rx="168" ry="272" fill="white"/>
+  <!-- Right pupil -->
+  <circle cx="719" cy="488" r="88" fill="black"/>
+  <!-- Right glare -->
+  <circle cx="682" cy="455" r="32" fill="white"/>
+</svg>

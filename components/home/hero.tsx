@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { MatrixRain } from '@/components/ui/matrix-rain';
 import { FloatingParticles } from '@/components/ui/floating-particles';
+import { MagneticWrapper } from '@/components/ui/magnetic-wrapper';
 
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState(true);
@@ -178,24 +179,28 @@ export function Hero() {
                             transition={{ duration: 0.6, delay: 0.9 }}
                             className="flex flex-wrap gap-5"
                         >
-                            <Link
-                                href="/services"
-                                className="group relative px-12 py-5 text-base lowercase tracking-wider border-2 border-[var(--fg)] rounded-sm overflow-hidden transition-all duration-500"
-                            >
-                                <span className="relative z-10 group-hover:text-[var(--bg)] transition-colors duration-500">
-                                    services
-                                </span>
-                                <div className="absolute inset-0 bg-[var(--fg)] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-                            </Link>
-                            <Link
-                                href="/portfolio"
-                                className="group relative px-12 py-5 text-base lowercase tracking-wider border-2 border-[var(--fg)] rounded-sm overflow-hidden transition-all duration-500"
-                            >
-                                <span className="relative z-10 group-hover:text-[var(--bg)] transition-colors duration-500">
-                                    portfolio
-                                </span>
-                                <div className="absolute inset-0 bg-[var(--fg)] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-                            </Link>
+                            <MagneticWrapper>
+                                <Link
+                                    href="/services"
+                                    className="group relative px-12 py-5 text-base lowercase tracking-wider border-2 border-[var(--fg)] rounded-sm overflow-hidden transition-all duration-500"
+                                >
+                                    <span className="relative z-10 group-hover:text-[var(--bg)] transition-colors duration-500">
+                                        services
+                                    </span>
+                                    <div className="absolute inset-0 bg-[var(--fg)] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                                </Link>
+                            </MagneticWrapper>
+                            <MagneticWrapper>
+                                <Link
+                                    href="/portfolio"
+                                    className="group relative px-12 py-5 text-base lowercase tracking-wider border-2 border-[var(--fg)] rounded-sm overflow-hidden transition-all duration-500"
+                                >
+                                    <span className="relative z-10 group-hover:text-[var(--bg)] transition-colors duration-500">
+                                        portfolio
+                                    </span>
+                                    <div className="absolute inset-0 bg-[var(--fg)] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                                </Link>
+                            </MagneticWrapper>
                         </motion.div>
                     </motion.div>
 

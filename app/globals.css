@@ -316,3 +316,32 @@ html {
   -ms-overflow-style: none !important;
   scrollbar-width: none !important;
 }
+
+/* ─── Custom Cursor ─────────────────────────────────────────── */
+/* Applied by the CustomCursor component on mount via JS class */
+.has-custom-cursor,
+.has-custom-cursor * {
+  cursor: none !important;
+}
+
+/* ─── Client Logo Marquee ───────────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.333%); }
+}
+
+.marquee-track {
+  animation: marquee 28s linear infinite;
+  will-change: transform;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ─── Footer logo theme switching (no JS needed) ───────────── */
+.footer-logo-dark  { display: block; }
+.footer-logo-light { display: none;  }
+
+[data-theme="light"] .footer-logo-dark  { display: none;  }
+[data-theme="light"] .footer-logo-light { display: block; }

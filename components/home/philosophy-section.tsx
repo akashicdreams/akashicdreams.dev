@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { TextScramble } from '@/components/ui/text-scramble';
 
 const services = [
     {
@@ -29,7 +30,7 @@ export function PhilosophySection() {
                     className="flex flex-col items-center text-center mb-32"
                 >
                     <h2 className="text-4xl md:text-6xl font-bold lowercase mb-12 tracking-tighter">
-                        cinematic tech.
+                        <TextScramble text="cinematic tech." duration={1100} />
                     </h2>
 
                     <div className="max-w-3xl w-full flex justify-center">

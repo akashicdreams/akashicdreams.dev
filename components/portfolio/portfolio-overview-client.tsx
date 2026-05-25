@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { MatrixRain } from '@/components/ui/matrix-rain';
 import { FloatingParticles } from '@/components/ui/floating-particles';
 import { AsciiArtFigure } from '@/components/ui/ascii-figure';
+import { TextScramble } from '@/components/ui/text-scramble';
 import type { PortfolioItem, SocialMediaProject, BrandIdentityProject } from '@/lib/portfolio';
 import type { Service } from '@/lib/services';
 
@@ -312,7 +313,7 @@ export function PortfolioOverviewClient({ portfolioByService, services }: Portfo
               our work
             </motion.span>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold lowercase tracking-tighter mb-8 text-center">
-              portfolio
+              <TextScramble text="portfolio" duration={900} delay={300} />
             </h1>
             <motion.p
               initial={{ opacity: 0 }}

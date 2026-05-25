@@ -119,20 +119,45 @@ export function Navigation() {
                 animate={isOpen ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
                 className="overflow-hidden md:hidden bg-[var(--bg)] border-b border-[var(--border)]"
             >
-                <div className="container py-8 flex flex-col gap-6">
-                    {navItems.map((item) => {
+                <div className="container pt-8 pb-10 flex flex-col gap-5">
+                    {navItems.map((item, i) => {
                         const isActive = pathname === item.href;
                         return (
-                            <Link
+                            <motion.div
                                 key={item.href}
-                                href={item.href}
-                                className={`text-2xl lowercase tracking-wide ${isActive ? 'text-[var(--fg)] font-bold' : 'text-[var(--muted)]'
-                                    }`}
+                                initial={{ opacity: 0, x: -12 }}
+                                animate={isOpen ? { opacity: 1, x: 0 } : { opacity: 0, x: -12 }}
+                                transition={{ duration: 0.3, delay: isOpen ? i * 0.06 : 0 }}
                             >
-                                {item.label}
-                            </Link>
+                                <Link
+                                    href={item.href}
+                                    className={`flex items-center gap-4 group ${isActive ? 'text-[var(--fg)]' : 'text-[var(--muted)]'}`}
+                                >
+                                    <span className="text-[10px] font-mono tracking-wider text-[var(--muted)] font-semibold w-5">
+                                        0{i + 1}
+                                    </span>
+                                    <span className="text-2xl font-bold lowercase tracking-tight group-hover:text-[var(--fg)] transition-colors">
+                                        {item.label}
+                                    </span>
+                                </Link>
+                            </motion.div>
                         );
                     })}
+
+                    {/* Contact nudge */}
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={isOpen ? { opacity: 1 } : { opacity: 0 }}
+                        transition={{ duration: 0.4, delay: isOpen ? 0.38 : 0 }}
+                        className="mt-4 pt-6 border-t border-[var(--border)]"
+                    >
+                        <a
+                            href="mailto:admin@akashicdreams.dev"
+                            className="text-xs tracking-[0.25em] text-[var(--muted)] hover:text-[var(--fg)] transition-colors lowercase font-semibold"
+                        >
+                            admin@akashicdreams.dev →
+                        </a>
+                    </motion.div>
                 </div>
             </motion.div>
         </motion.nav>
