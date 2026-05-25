@@ -318,10 +318,19 @@ html {
 }
 
 /* ─── Custom Cursor ─────────────────────────────────────────── */
-/* Applied by the CustomCursor component on mount via JS class */
-.has-custom-cursor,
-.has-custom-cursor * {
-  cursor: none !important;
+/* Only hide the native cursor on true pointer devices */
+@media (pointer: fine) and (hover: hover) {
+  .has-custom-cursor,
+  .has-custom-cursor * {
+    cursor: none !important;
+  }
+}
+
+/* Force-hide cursor elements on touch/coarse-pointer devices */
+@media (pointer: coarse), (hover: none) {
+  .custom-cursor-el {
+    display: none !important;
+  }
 }
 
 /* ─── Client Logo Marquee ───────────────────────────────────── */

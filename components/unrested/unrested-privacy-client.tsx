@@ -49,12 +49,12 @@ function PrivacyBlock({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-30px' }}
             transition={{ duration: 0.5 }}
-            className={`pb-10 ${last ? '' : 'mb-10 border-b border-[var(--border)]'}`}
+            className={`pb-14 ${last ? '' : 'mb-14 border-b border-[var(--border)]'}`}
         >
-            <h3 className="text-base font-bold lowercase tracking-tight mb-5 text-[var(--fg)]">
+            <h3 className="text-base font-bold lowercase tracking-tight mb-6 text-[var(--fg)]">
                 {title}
             </h3>
-            <div className="text-sm text-[var(--muted)] leading-relaxed lowercase">
+            <div className="text-sm text-[var(--muted)] leading-loose lowercase">
                 {children}
             </div>
         </motion.div>
@@ -68,7 +68,7 @@ export function UnrestedPrivacyClient() {
         <div className="min-h-screen bg-[var(--bg)]">
             {/* Back nav */}
             <div className="border-b border-[var(--border)]">
-                <div className="container max-w-3xl mx-auto px-6 py-5">
+                <div className="container max-w-3xl mx-auto px-6 py-6">
                     <Link
                         href="/unrested"
                         className="inline-flex items-center gap-2 text-xs text-[var(--muted)] hover:text-[var(--fg)] transition-colors lowercase tracking-[0.2em] font-semibold"
@@ -81,13 +81,13 @@ export function UnrestedPrivacyClient() {
                 </div>
             </div>
 
-            <div className="container max-w-3xl mx-auto px-6 py-24 md:py-32">
+            <div className="container max-w-3xl mx-auto px-6 py-28 md:py-40">
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 24 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="mb-20"
+                    className="mb-28"
                 >
                     <span className="text-[11px] tracking-[0.4em] text-[var(--muted)] lowercase font-semibold block mb-7">
                         legal

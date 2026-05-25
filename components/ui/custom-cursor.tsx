@@ -54,7 +54,7 @@ export function CustomCursor() {
         <>
             {/* Small dot -snappy, mix-blend inverts on light elements */}
             <motion.div
-                className="fixed top-0 left-0 pointer-events-none z-[99999] rounded-full bg-[var(--fg)]"
+                className="custom-cursor-el fixed top-0 left-0 pointer-events-none z-[99999] rounded-full bg-[var(--fg)]"
                 style={{
                     x: dotX,
                     y: dotY,
@@ -68,7 +68,7 @@ export function CustomCursor() {
 
             {/* Outer ring -laggy, expands on hover */}
             <motion.div
-                className="fixed top-0 left-0 pointer-events-none z-[99998] rounded-full border border-[var(--fg)]"
+                className="custom-cursor-el fixed top-0 left-0 pointer-events-none z-[99998] rounded-full border border-[var(--fg)]"
                 style={{
                     x: ringX,
                     y: ringY,

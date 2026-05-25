@@ -14,17 +14,17 @@ const steps = [
     {
         number: '01',
         title: 'set your alarm',
-        description: 'pick a time, choose your challenge types, and set the difficulty. everything configured once and ready every morning.',
+        description: 'pick a time and choose your challenges. configured once, ready every morning.',
     },
     {
         number: '02',
         title: 'wake up hard',
-        description: 'the alarm fires and keeps going. the only way to stop it is to complete your selected challenges. no snooze. no shortcuts.',
+        description: 'the alarm fires. no snooze. solve your challenges or it keeps going.',
     },
     {
         number: '03',
         title: 'earn your streak',
-        description: 'complete every morning and your streak grows. miss the window -fail the challenge -and it resets. every day is earned.',
+        description: 'complete every morning and your streak builds. miss once and it resets.',
     },
 ];
 
@@ -225,8 +225,8 @@ function Hero() {
                 />
             </motion.div>
 
-            <div className="container max-w-7xl mx-auto px-6 relative z-10 py-32">
-                <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+            <div className="container max-w-7xl mx-auto px-6 relative z-10 py-48">
+                <div className="flex flex-col lg:flex-row items-center gap-20 lg:gap-32">
 
                     {/* App Icon */}
                     <motion.div
@@ -260,7 +260,7 @@ function Hero() {
                                 }}
                             >
                                 <Image
-                                    src="/apps/unrested/icon.png"
+                                    src="/apps/unrested/icon.svg"
                                     alt="unrested app icon"
                                     width={200}
                                     height={200}
@@ -277,12 +277,12 @@ function Hero() {
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
-                            className="text-[11px] tracking-[0.4em] text-[var(--muted)] mb-6 lowercase font-semibold"
+                            className="text-[11px] tracking-[0.4em] text-[var(--muted)] mb-10 lowercase font-semibold"
                         >
                             alarm app · android
                         </motion.div>
 
-                        <h1 className="text-7xl md:text-9xl font-bold lowercase tracking-tighter leading-[0.85] mb-6">
+                        <h1 className="text-7xl md:text-9xl font-bold lowercase tracking-tighter leading-[0.85] mb-10">
                             <motion.span
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
@@ -297,7 +297,7 @@ function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.7, delay: 0.6 }}
-                            className="text-2xl md:text-3xl font-bold text-[var(--fg)] mb-4 lowercase tracking-tight max-w-lg"
+                            className="text-2xl md:text-3xl font-bold text-[var(--fg)] mb-8 lowercase tracking-tight max-w-lg"
                         >
                             the alarm that earns your morning.
                         </motion.p>
@@ -306,7 +306,7 @@ function Hero() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.8, delay: 0.8 }}
-                            className="text-base md:text-lg text-[var(--muted)] mb-12 lowercase leading-relaxed max-w-md"
+                            className="text-base md:text-lg text-[var(--muted)] mb-16 lowercase leading-loose max-w-md"
                         >
                             no snooze. complete mental challenges to stop the alarm.
                             build discipline, one morning at a time.
@@ -330,7 +330,7 @@ function Hero() {
 
 function HowItWorks() {
     return (
-        <section className="relative py-44 md:py-52 overflow-hidden border-t border-[var(--border)]">
+        <section className="relative py-56 md:py-64 overflow-hidden border-t border-[var(--border)]">
             <div className="absolute inset-0 animated-gradient-bg" />
 
             <div className="container max-w-6xl mx-auto px-6 relative z-10">
@@ -339,9 +339,9 @@ function HowItWorks() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.9 }}
-                    className="flex flex-col items-center text-center mb-28"
+                    className="flex flex-col items-center text-center mb-32 md:mb-40"
                 >
-                    <span className="text-[11px] tracking-[0.4em] text-[var(--muted)] mb-7 lowercase font-semibold">
+                    <span className="text-[11px] tracking-[0.4em] text-[var(--muted)] mb-8 lowercase font-semibold">
                         how it works
                     </span>
                     <h2 className="text-5xl md:text-7xl font-bold lowercase tracking-tighter">
@@ -349,7 +349,7 @@ function HowItWorks() {
                     </h2>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 relative">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-10 relative">
                     {/* Connecting line on desktop */}
                     <div
                         className="hidden md:block absolute top-[3.25rem] left-[calc(16.666%+1rem)] right-[calc(16.666%+1rem)] h-[1px] pointer-events-none"
@@ -366,16 +366,16 @@ function HowItWorks() {
                             className="group flex flex-col items-center md:items-start text-center md:text-left"
                         >
                             {/* Number circle */}
-                            <div className="w-14 h-14 rounded-full border-2 border-[var(--border)] group-hover:border-[var(--fg)] transition-colors duration-500 flex items-center justify-center mb-8 bg-[var(--bg)] relative z-10 flex-shrink-0">
+                            <div className="w-14 h-14 rounded-full border-2 border-[var(--border)] group-hover:border-[var(--fg)] transition-colors duration-500 flex items-center justify-center mb-10 bg-[var(--bg)] relative z-10 flex-shrink-0">
                                 <span className="text-xs font-mono font-bold text-[var(--muted)] group-hover:text-[var(--fg)] transition-colors">
                                     {step.number}
                                 </span>
                             </div>
 
-                            <h3 className="text-2xl font-bold lowercase tracking-tight mb-4">
+                            <h3 className="text-2xl font-bold lowercase tracking-tight mb-5">
                                 {step.title}
                             </h3>
-                            <p className="text-sm text-[var(--muted)] leading-relaxed lowercase">
+                            <p className="text-sm text-[var(--muted)] leading-loose lowercase">
                                 {step.description}
                             </p>
                         </motion.div>
@@ -390,7 +390,7 @@ function HowItWorks() {
 
 function Challenges() {
     return (
-        <section className="relative py-44 md:py-52 overflow-hidden border-t border-[var(--border)]">
+        <section className="relative py-56 md:py-64 overflow-hidden border-t border-[var(--border)]">
             <FloatingParticles count={12} minSize={1} maxSize={2} />
 
             <div className="container max-w-6xl mx-auto px-6 relative z-10">
@@ -399,20 +399,20 @@ function Challenges() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.9 }}
-                    className="flex flex-col items-center text-center mb-28"
+                    className="flex flex-col items-center text-center mb-32 md:mb-40"
                 >
-                    <span className="text-[11px] tracking-[0.4em] text-[var(--muted)] mb-7 lowercase font-semibold">
+                    <span className="text-[11px] tracking-[0.4em] text-[var(--muted)] mb-8 lowercase font-semibold">
                         the challenges
                     </span>
-                    <h2 className="text-5xl md:text-7xl font-bold lowercase tracking-tighter mb-8">
+                    <h2 className="text-5xl md:text-7xl font-bold lowercase tracking-tighter mb-10">
                         six ways to wake up.
                     </h2>
-                    <p className="text-base text-[var(--muted)] lowercase max-w-md leading-relaxed">
-                        pick one, two, or three per alarm. the more you stack, the harder the morning.
+                    <p className="text-base text-[var(--muted)] lowercase max-w-sm leading-loose">
+                        stack up to three per alarm.<br />the harder the stack, the harder the morning.
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                     {challenges.map((c, i) => (
                         <motion.div
                             key={c.name}
@@ -420,7 +420,7 @@ function Challenges() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: '-30px' }}
                             transition={{ duration: 0.5, delay: i * 0.07 }}
-                            className="group relative border border-[var(--border)] rounded-sm p-8 hover:border-[var(--fg)] transition-all duration-500 overflow-hidden card-glow"
+                            className="group relative border border-[var(--border)] rounded-sm p-10 hover:border-[var(--fg)] transition-all duration-500 overflow-hidden card-glow"
                         >
                             {/* Ghost number background */}
                             <span className="absolute top-1/2 right-4 -translate-y-1/2 text-[6rem] font-bold text-[var(--fg)] opacity-[0.025] leading-none font-mono select-none pointer-events-none">
@@ -428,13 +428,13 @@ function Challenges() {
                             </span>
 
                             <div className="relative z-10">
-                                <div className="mb-5 opacity-80 group-hover:opacity-100 transition-opacity">
+                                <div className="mb-7 opacity-80 group-hover:opacity-100 transition-opacity">
                                     <c.icon />
                                 </div>
-                                <h3 className="text-lg font-bold lowercase tracking-tight mb-3">
+                                <h3 className="text-lg font-bold lowercase tracking-tight mb-4">
                                     {c.name}
                                 </h3>
-                                <p className="text-sm text-[var(--muted)] leading-relaxed lowercase">
+                                <p className="text-sm text-[var(--muted)] leading-loose lowercase">
                                     {c.description}
                                 </p>
                             </div>
@@ -452,7 +452,7 @@ function Challenges() {
 
 function Features() {
     return (
-        <section className="relative py-44 md:py-52 overflow-hidden border-t border-[var(--border)]">
+        <section className="relative py-56 md:py-64 overflow-hidden border-t border-[var(--border)]">
             <div className="absolute inset-0 animated-gradient-bg opacity-60" />
 
             <div className="container max-w-5xl mx-auto px-6 relative z-10">
@@ -461,9 +461,9 @@ function Features() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="flex flex-col items-center text-center mb-20"
+                    className="flex flex-col items-center text-center mb-28 md:mb-36"
                 >
-                    <span className="text-[11px] tracking-[0.4em] text-[var(--muted)] mb-7 lowercase font-semibold">
+                    <span className="text-[11px] tracking-[0.4em] text-[var(--muted)] mb-8 lowercase font-semibold">
                         features
                     </span>
                     <h2 className="text-4xl md:text-6xl font-bold lowercase tracking-tighter">
@@ -471,7 +471,7 @@ function Features() {
                     </h2>
                 </motion.div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                     {features.map((f, i) => (
                         <motion.div
                             key={f.label}
@@ -479,7 +479,7 @@ function Features() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: '-20px' }}
                             transition={{ duration: 0.4, delay: i * 0.06 }}
-                            className="group flex items-center gap-5 border border-[var(--border)] rounded-sm px-6 py-5 hover:border-[var(--fg)] transition-colors duration-400"
+                            className="group flex items-center gap-6 border border-[var(--border)] rounded-sm px-7 py-7 hover:border-[var(--fg)] transition-colors duration-400"
                         >
                             <span className="text-xl font-mono text-[var(--muted)] group-hover:text-[var(--fg)] transition-colors w-6 text-center flex-shrink-0">
                                 {f.icon}
@@ -497,7 +497,7 @@ function Features() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.7, delay: 0.3 }}
-                    className="flex justify-center mt-20"
+                    className="flex justify-center mt-28"
                 >
                     <GooglePlayBadge />
                 </motion.div>
