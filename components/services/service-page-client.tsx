@@ -58,12 +58,12 @@ export function ServicePageClient({ service, allServices, portfolioItems = [] }:
 
                 <FloatingParticles count={15} minSize={1} maxSize={3} />
 
-                {/* ASCII art — centered behind content */}
+                {/* ASCII art -centered behind content */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.1]">
                     <AsciiArtFigure shape={asciiShape} rows={28} cols={32} animSpeed={2000} />
                 </div>
 
-                {/* Hero content — centered */}
+                {/* Hero content -centered */}
                 <div className="relative z-10 w-full pt-32 pb-20">
                     <div className="container max-w-7xl mx-auto px-6">
                         <motion.div

@@ -52,7 +52,7 @@ export function CustomCursor() {
 
     return (
         <>
-            {/* Small dot — snappy, mix-blend inverts on light elements */}
+            {/* Small dot -snappy, mix-blend inverts on light elements */}
             <motion.div
                 className="fixed top-0 left-0 pointer-events-none z-[99999] rounded-full bg-[var(--fg)]"
                 style={{
@@ -66,7 +66,7 @@ export function CustomCursor() {
                 transition={{ duration: 0.15 }}
             />
 
-            {/* Outer ring — laggy, expands on hover */}
+            {/* Outer ring -laggy, expands on hover */}
             <motion.div
                 className="fixed top-0 left-0 pointer-events-none z-[99998] rounded-full border border-[var(--fg)]"
                 style={{

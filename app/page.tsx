@@ -15,7 +15,7 @@ export default function HomePage() {
     <div className="bg-[var(--bg)] min-h-screen">
       <Hero />
 
-      {/* Stats strip — immediate trust signal after hero */}
+      {/* Stats strip -immediate trust signal after hero */}
       <StatsCounter />
 
       <div className="section-divider" />
@@ -25,7 +25,7 @@ export default function HomePage() {
 
       <div className="section-divider" />
 
-      {/* Portfolio preview — tabbed by service */}
+      {/* Portfolio preview -tabbed by service */}
       <PillarToggle portfolioByService={portfolioByService} services={services} />
 
       <div className="section-divider" />

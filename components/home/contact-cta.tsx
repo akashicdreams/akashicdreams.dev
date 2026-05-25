@@ -27,7 +27,7 @@ const socialLinks = [
 export function ContactCTA() {
     return (
         <section id="contact" className="px-6 md:px-8 pt-40 pb-40 md:pt-52 md:pb-52 bg-[var(--bg)] relative overflow-hidden">
-            {/* Matrix rain background — subtle */}
+            {/* Matrix rain background -subtle */}
             <div className="absolute inset-0">
                 <MatrixRain opacity={0.04} speed={0.5} density={0.3} />
             </div>

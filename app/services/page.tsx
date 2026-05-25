@@ -4,7 +4,7 @@ import { ServicesListClient } from '@/components/services/services-list-client';
 
 export const metadata: Metadata = {
     title: 'services',
-    description: 'what we offer — from software to visual storytelling',
+    description: 'what we offer -from software to visual storytelling',
 };
 
 export default function ServicesPage() {

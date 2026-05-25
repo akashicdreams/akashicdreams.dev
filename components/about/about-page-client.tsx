@@ -11,7 +11,7 @@ const values = [
     {
         number: '01',
         title: 'craft over shortcuts',
-        description: 'every line of code, every frame, every pixel — intentional. we don\'t rush to ship, we refine until it feels right.',
+        description: 'every line of code, every frame, every pixel -intentional. we don\'t rush to ship, we refine until it feels right.',
     },
     {
         number: '02',
@@ -163,7 +163,7 @@ export function AboutPageClient() {
                             transition={{ duration: 0.8, delay: 0.2 }}
                             className="text-lg md:text-2xl lowercase leading-relaxed text-[var(--muted)] mb-10"
                         >
-                            in ancient sanskrit, &ldquo;akasha&rdquo; means the ether — the fundamental substance from which all things emerge. the akashic records are believed to be an infinite library of every thought, event, and possibility that has ever existed or will ever exist.
+                            in ancient sanskrit, &ldquo;akasha&rdquo; means the ether -the fundamental substance from which all things emerge. the akashic records are believed to be an infinite library of every thought, event, and possibility that has ever existed or will ever exist.
                         </motion.p>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
@@ -172,7 +172,7 @@ export function AboutPageClient() {
                             transition={{ duration: 0.8, delay: 0.4 }}
                             className="text-lg md:text-2xl lowercase leading-relaxed text-[var(--fg)] font-light"
                         >
-                            we chose this name because we believe creation is not just technical — it&apos;s spiritual. every project begins as an idea floating in the ether, and our job is to pull it into reality with code, design, and intention.
+                            we chose this name because we believe creation is not just technical -it&apos;s spiritual. every project begins as an idea floating in the ether, and our job is to pull it into reality with code, design, and intention.
                         </motion.p>
                     </motion.div>
                 </div>
@@ -213,7 +213,7 @@ export function AboutPageClient() {
                             transition={{ duration: 0.8, delay: 0.2 }}
                             className="text-lg md:text-2xl lowercase leading-relaxed text-[var(--muted)] mb-10"
                         >
-                            akashic dreams is a small creative and technology studio. we live at the intersection of software engineering and visual storytelling — building digital systems that work beautifully and capturing moments that tell real stories.
+                            akashic dreams is a small creative and technology studio. we live at the intersection of software engineering and visual storytelling -building digital systems that work beautifully and capturing moments that tell real stories.
                         </motion.p>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
@@ -290,7 +290,7 @@ export function AboutPageClient() {
                                         >
                                             <Image
                                                 src={member.image}
-                                                alt={`${member.name} — ${member.role}`}
+                                                alt={`${member.name} -${member.role}`}
                                                 fill
                                                 className="object-contain object-bottom p-4 drop-shadow-[0_0_40px_rgba(255,255,255,0.08)] group-hover:drop-shadow-[0_0_60px_rgba(255,255,255,0.15)] transition-all duration-500"
                                             />
@@ -427,7 +427,7 @@ export function AboutPageClient() {
                                     software
                                 </h3>
                                 <p className="text-base text-[var(--muted)] lowercase leading-relaxed">
-                                    we build websites, mobile apps, and digital systems from the ground up. clean architecture, modern frameworks, and a relentless focus on performance. every project is treated as a craft — from the first commit to the final deploy.
+                                    we build websites, mobile apps, and digital systems from the ground up. clean architecture, modern frameworks, and a relentless focus on performance. every project is treated as a craft -from the first commit to the final deploy.
                                 </p>
                             </motion.div>
 
@@ -477,7 +477,7 @@ export function AboutPageClient() {
                             ready to build something?
                         </h2>
                         <p className="text-lg text-[var(--muted)] lowercase mb-14 max-w-md">
-                            whether it&apos;s a website, an app, a brand, or a story — we&apos;re here to make it happen.
+                            whether it&apos;s a website, an app, a brand, or a story -we&apos;re here to make it happen.
                         </p>
                         <Link
                             href="/contact"

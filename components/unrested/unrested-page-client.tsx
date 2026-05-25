@@ -24,7 +24,7 @@ const steps = [
     {
         number: '03',
         title: 'earn your streak',
-        description: 'complete every morning and your streak grows. miss the window — fail the challenge — and it resets. every day is earned.',
+        description: 'complete every morning and your streak grows. miss the window -fail the challenge -and it resets. every day is earned.',
     },
 ];
 
@@ -57,7 +57,7 @@ const challenges = [
     {
         icon: TriviaIcon,
         name: 'trivia quiz',
-        description: 'answer 3 questions correctly. wrong answer — try again.',
+        description: 'answer 3 questions correctly. wrong answer -try again.',
     },
 ];
 
@@ -65,37 +65,11 @@ const features = [
     { icon: '✕', label: 'no snooze. ever.' },
     { icon: '◈', label: '1–3 challenges per alarm' },
     { icon: '▦', label: 'streak tracking + calendar history' },
-    { icon: '▲', label: 'volume ramp — starts quiet, gets louder' },
+    { icon: '▲', label: 'volume ramp -starts quiet, gets louder' },
     { icon: '~', label: 'vibration support' },
     { icon: '⊘', label: '100% offline' },
 ];
 
-const permissions = [
-    {
-        name: 'SCHEDULE_EXACT_ALARM / USE_EXACT_ALARM',
-        reason: 'Required to fire your alarm at the exact time you set. Without this, Android may delay or batch alarms, causing them to fire late.',
-    },
-    {
-        name: 'WAKE_LOCK',
-        reason: 'Required to wake the screen and keep the CPU running when the alarm fires, so the challenge screen can appear even if your phone was asleep.',
-    },
-    {
-        name: 'FOREGROUND_SERVICE / FOREGROUND_SERVICE_MEDIA_PLAYBACK',
-        reason: 'Required to play the alarm sound while the app is in the background. Android requires this service type to play audio from a background process.',
-    },
-    {
-        name: 'VIBRATE',
-        reason: 'Required to vibrate the device when an alarm fires.',
-    },
-    {
-        name: 'RECEIVE_BOOT_COMPLETED',
-        reason: 'Required to re-schedule your alarms after the device is restarted. Without this, all alarms would be lost every time you reboot.',
-    },
-    {
-        name: 'POST_NOTIFICATIONS',
-        reason: 'Required on Android 13+ to display the alarm notification that appears when the alarm fires.',
-    },
-];
 
 // ─── INLINE SVG ICONS ────────────────────────────────────────────────────────
 
@@ -176,19 +150,25 @@ function GooglePlayBadge() {
             aria-label="get unrested on google play"
         >
             <MagneticWrapper strength={0.2} radius={70}>
-                <div className="inline-flex items-center gap-4 px-5 py-3 rounded-xl border-2 border-[var(--fg)] hover:bg-[var(--fg)] hover:text-[var(--bg)] transition-all duration-500 group">
-                    {/* Google Play logo (simplified SVG) */}
-                    <svg viewBox="0 0 24 24" className="w-7 h-7 flex-shrink-0" fill="none" aria-hidden>
-                        <path
-                            d="M3 2.8v18.4c0 .9 1 1.4 1.7.9l16-9.2a1 1 0 0 0 0-1.8L4.7 1.9C4 1.4 3 1.9 3 2.8z"
-                            className="fill-[var(--fg)] group-hover:fill-[var(--bg)] transition-colors duration-500"
-                        />
+                <div className="inline-flex items-center gap-4 px-5 py-3 rounded-xl border border-white/20 bg-black hover:bg-white/5 transition-all duration-300">
+                    {/* Official Google Play 4-color triangle icon */}
+                    <svg viewBox="0 0 24 24" className="w-7 h-7 flex-shrink-0" aria-hidden fill="none">
+                        {/* Bottom-left green triangle */}
+                        <path d="M3.18 23.5c.3.17.64.26 1 .24l10.6-11.85L11.4 8.6 3.18 23.5z" fill="#34A853" />
+                        {/* Top-left blue triangle */}
+                        <path d="M3 1.06a1.5 1.5 0 0 0-.5 1.16v19.56c0 .46.18.87.5 1.16l.09.08L14.07 12v-.18L3.09.98 3 1.06z" fill="#4285F4" />
+                        {/* Right red triangle */}
+                        <path d="M17.84 15.74l-3.77-3.77.18-.18 3.59-3.59 4.27 2.43c1.22.69 1.22 1.82 0 2.51l-4.27 2.6z" fill="#EA4335" />
+                        {/* Bottom yellow triangle */}
+                        <path d="M17.84 15.74L14.07 12 3 23.07c.4.43 1.06.48 1.59.15l13.25-7.48z" fill="#FBBC05" />
+                        {/* Top yellow/green overlap fix */}
+                        <path d="M17.84 8.26L4.59.78C4.06.45 3.4.5 3 .93L14.07 12l3.77-3.74z" fill="#FBBC05" />
                     </svg>
                     <div className="flex flex-col text-left leading-tight">
-                        <span className="text-[9px] tracking-[0.25em] text-[var(--muted)] group-hover:text-[var(--bg)] transition-colors duration-500 uppercase font-semibold">
+                        <span className="text-[9px] tracking-[0.25em] text-white/50 uppercase font-semibold">
                             get it on
                         </span>
-                        <span className="text-xl font-bold tracking-tight">
+                        <span className="text-xl font-bold tracking-tight text-white">
                             Google Play
                         </span>
                     </div>
@@ -280,7 +260,7 @@ function Hero() {
                                 }}
                             >
                                 <Image
-                                    src="/apps/unrested/icon.svg"
+                                    src="/apps/unrested/icon.png"
                                     alt="unrested app icon"
                                     width={200}
                                     height={200}
@@ -472,7 +452,7 @@ function Challenges() {
 
 function Features() {
     return (
-        <section className="relative py-32 overflow-hidden border-t border-[var(--border)]">
+        <section className="relative py-44 md:py-52 overflow-hidden border-t border-[var(--border)]">
             <div className="absolute inset-0 animated-gradient-bg opacity-60" />
 
             <div className="container max-w-5xl mx-auto px-6 relative z-10">
@@ -526,139 +506,6 @@ function Features() {
     );
 }
 
-// ─── SECTION: PRIVACY POLICY ─────────────────────────────────────────────────
-
-function PrivacyPolicy() {
-    return (
-        <section
-            id="privacy"
-            className="relative py-44 md:py-52 border-t border-[var(--border)] scroll-mt-20"
-        >
-            <div className="container max-w-3xl mx-auto px-6 relative z-10">
-                <motion.div
-                    initial={{ opacity: 0, y: 24 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                    className="mb-20"
-                >
-                    <span className="text-[11px] tracking-[0.4em] text-[var(--muted)] lowercase font-semibold block mb-7">
-                        legal
-                    </span>
-                    <h2 className="text-4xl md:text-6xl font-bold lowercase tracking-tighter mb-6">
-                        privacy policy
-                    </h2>
-                    <p className="text-sm text-[var(--muted)] lowercase">
-                        last updated: may 2026
-                    </p>
-                </motion.div>
-
-                <div className="prose-unrested">
-                    <PrivacyBlock title="1. introduction">
-                        This Privacy Policy describes how Akashic Dreams ("we", "us", or "our") handles information in connection with the Unrested alarm application ("the App") available on Google Play. By using the App, you agree to the practices described in this policy. If you do not agree, please do not use the App.
-                    </PrivacyBlock>
-
-                    <PrivacyBlock title="2. information we collect">
-                        <strong>We collect no personal information whatsoever.</strong>
-                        <br /><br />
-                        Unrested does not ask for your name, email address, phone number, location, or any other personally identifiable information. No account or registration is required to use the App. You are completely anonymous to us.
-                    </PrivacyBlock>
-
-                    <PrivacyBlock title="3. data stored on your device">
-                        The App stores the following data locally on your device only:
-                        <ul>
-                            <li>Your configured alarms (times, challenge types, difficulty settings)</li>
-                            <li>Your streak history and daily completion records</li>
-                            <li>Your challenge preferences and app settings</li>
-                        </ul>
-                        This data never leaves your device. It is not transmitted to us or to any third party. It is not stored on any server. Uninstalling the App removes all of this data permanently.
-                    </PrivacyBlock>
-
-                    <PrivacyBlock title="4. analytics, crash reporting & third-party sdks">
-                        Unrested contains <strong>no analytics software, no crash reporting tools, and no third-party SDKs that collect or transmit data</strong>. We do not use Google Analytics, Firebase, Sentry, Mixpanel, Facebook SDK, or any equivalent service. No data about your usage of the App is ever sent anywhere.
-                    </PrivacyBlock>
-
-                    <PrivacyBlock title="5. internet access">
-                        Unrested does not require an internet connection and does not use the internet for any purpose. The App operates entirely offline. No network requests are made at any time.
-                    </PrivacyBlock>
-
-                    <PrivacyBlock title="6. android permissions">
-                        The App requests the following Android permissions. All permissions are used exclusively for their stated purpose and for no other reason:
-                        <br /><br />
-                        {permissions.map((p) => (
-                            <div key={p.name} className="mb-6">
-                                <span className="font-mono text-[11px] tracking-wide text-[var(--fg)] block mb-1 opacity-80">
-                                    {p.name}
-                                </span>
-                                <span className="text-[var(--muted)] text-sm leading-relaxed">
-                                    {p.reason}
-                                </span>
-                            </div>
-                        ))}
-                        No permission is used to collect, transmit, or store any personal data.
-                    </PrivacyBlock>
-
-                    <PrivacyBlock title="7. data sharing with third parties">
-                        We do not share, sell, rent, trade, or otherwise transfer any data to third parties. There is no data to share — we do not collect any.
-                    </PrivacyBlock>
-
-                    <PrivacyBlock title="8. children's privacy">
-                        The App does not knowingly collect any information from children under the age of 13. As Unrested collects no personal data from any user of any age, it is compliant with children's privacy regulations including COPPA. Parents and guardians may contact us at any time with questions.
-                    </PrivacyBlock>
-
-                    <PrivacyBlock title="9. data security">
-                        Since all data is stored locally on your device and no data is transmitted or collected by us, the security of your App data depends on your device's own security features (screen lock, encryption, etc.). We have no access to your data and therefore cannot be the source of a data breach.
-                    </PrivacyBlock>
-
-                    <PrivacyBlock title="10. changes to this policy">
-                        If we ever change this Privacy Policy, we will update the "last updated" date at the top of this page. Any significant changes will also be noted in the App's Play Store listing. We encourage you to review this policy periodically. Continued use of the App after changes constitutes your acceptance of the updated policy.
-                    </PrivacyBlock>
-
-                    <PrivacyBlock title="11. contact us" last>
-                        If you have any questions, concerns, or requests regarding this Privacy Policy or the App, please contact us at:
-                        <br /><br />
-                        <a
-                            href="mailto:admin@akashicdreams.dev"
-                            className="text-[var(--fg)] hover:opacity-70 transition-opacity underline underline-offset-4 decoration-[var(--border)]"
-                        >
-                            admin@akashicdreams.dev
-                        </a>
-                        <br /><br />
-                        <span className="text-[var(--muted)]">Akashic Dreams — sângeorz-băi, romania</span>
-                    </PrivacyBlock>
-                </div>
-            </div>
-        </section>
-    );
-}
-
-function PrivacyBlock({
-    title,
-    children,
-    last = false,
-}: {
-    title: string;
-    children: React.ReactNode;
-    last?: boolean;
-}) {
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-30px' }}
-            transition={{ duration: 0.5 }}
-            className={`pb-10 ${last ? '' : 'mb-10 border-b border-[var(--border)]'}`}
-        >
-            <h3 className="text-base font-bold lowercase tracking-tight mb-5 text-[var(--fg)]">
-                {title}
-            </h3>
-            <div className="text-sm text-[var(--muted)] leading-relaxed lowercase">
-                {children}
-            </div>
-        </motion.div>
-    );
-}
-
 // ─── PAGE FOOTER ─────────────────────────────────────────────────────────────
 
 function PageFooter() {
@@ -676,12 +523,12 @@ function PageFooter() {
                     </div>
 
                     <div className="flex items-center gap-6">
-                        <a
-                            href="#privacy"
+                        <Link
+                            href="/unrested/privacy"
                             className="text-xs text-[var(--muted)] hover:text-[var(--fg)] transition-colors lowercase tracking-wider font-semibold"
                         >
                             privacy policy
-                        </a>
+                        </Link>
                         <a
                             href="mailto:admin@akashicdreams.dev"
                             className="text-xs text-[var(--muted)] hover:text-[var(--fg)] transition-colors lowercase tracking-wider font-semibold"
@@ -710,7 +557,6 @@ export function UnrestedPageClient() {
             <HowItWorks />
             <Challenges />
             <Features />
-            <PrivacyPolicy />
             <PageFooter />
         </div>
     );

@@ -344,7 +344,7 @@ export function ContactPageClient() {
                             transition={{ duration: 0.8, delay: 0.2 }}
                             className="text-lg md:text-xl text-[var(--muted)] lowercase max-w-lg leading-relaxed"
                         >
-                            expect a reply within 24–48 hours. we&apos;ll talk through your vision, scope the work, and figure out the best way forward — no pressure, no jargon.
+                            expect a reply within 24–48 hours. we&apos;ll talk through your vision, scope the work, and figure out the best way forward -no pressure, no jargon.
                         </motion.p>
                     </motion.div>
                 </div>

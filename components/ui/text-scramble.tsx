@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-const CHARS = '!<>—\\/[]{}=+*^?#@$%&_░▒▓';
+const CHARS = '!<>-\\/[]{}=+*^?#@$%&_░▒▓';
 
 function buildFrame(target: string, progress: number): string {
     const revealed = Math.ceil(progress * target.length);

@@ -14,6 +14,7 @@ const navItems = [
     { label: 'clients', href: '/clients' },
     { label: 'about', href: '/about' },
     { label: 'contact', href: '/contact' },
+    { label: 'unrested', href: '/unrested' },
 ];
 
 export function Navigation() {

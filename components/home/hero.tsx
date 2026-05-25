@@ -129,7 +129,7 @@ export function Hero() {
                 <div className="absolute inset-0 gradient-radial pointer-events-none" />
 
                 <div className="container z-10 flex flex-col lg:flex-row items-center lg:items-center gap-20 lg:gap-12 pt-16 pb-24 lg:py-0">
-                    {/* left — text + cta */}
+                    {/* left -text + cta */}
                     <motion.div
                         initial={{ opacity: 0, x: -40 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -204,7 +204,7 @@ export function Hero() {
                         </motion.div>
                     </motion.div>
 
-                    {/* right — logo + bubbles */}
+                    {/* right -logo + bubbles */}
                     <motion.div
                         initial={{ opacity: 0, x: 40 }}
                         animate={{ opacity: 1, x: 0 }}
