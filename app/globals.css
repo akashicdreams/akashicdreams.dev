@@ -19,6 +19,21 @@
   --fg: oklch(100% 0 0);
   --muted: oklch(65% 0 0);
   --border: oklch(22% 0 0);
+  /* Gray nuance blocks for color-blocked sections */
+  --surface: oklch(16% 0 0);
+  --surface-deep: oklch(11% 0 0);
+  --surface-muted: oklch(70% 0 0);
+  --surface-border: oklch(28% 0 0);
+  /* Inverted sections (white blocks on dark site, black on light) */
+  --inverse-bg: oklch(97% 0 0);
+  --inverse-fg: oklch(8% 0 0);
+  --inverse-muted: oklch(42% 0 0);
+  --inverse-border: oklch(85% 0 0);
+  --nav-bg: rgba(0, 0, 0, 0.85);
+  /* Astral violet - the single brand accent, used sparingly */
+  --accent: oklch(72% 0.18 295);
+  /* Accent for use on inverted (light-in-dark-mode) sections */
+  --inverse-accent: oklch(48% 0.21 295);
 }
 
 [data-theme="light"] {
@@ -26,12 +41,27 @@
   --fg: oklch(0% 0 0);
   --muted: oklch(45% 0 0);
   --border: oklch(85% 0 0);
+  --surface: oklch(94% 0 0);
+  --surface-deep: oklch(90% 0 0);
+  --surface-muted: oklch(40% 0 0);
+  --surface-border: oklch(80% 0 0);
+  --inverse-bg: oklch(10% 0 0);
+  --inverse-fg: oklch(98% 0 0);
+  --inverse-muted: oklch(70% 0 0);
+  --inverse-border: oklch(28% 0 0);
+  --nav-bg: rgba(255, 255, 255, 0.85);
+  --accent: oklch(48% 0.21 295);
+  --inverse-accent: oklch(72% 0.18 295);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Reset lives in the base layer so Tailwind spacing utilities
+   (p-*, m-*, gap-*) keep their priority over it */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 }
 
 html,
@@ -43,8 +73,9 @@ body {
 body {
   background: var(--bg);
   color: var(--fg);
-  font-family: 'Rajdhani', ui-sans-serif, system-ui, sans-serif;
-  font-weight: 500;
+  /* Inter for reading, Rajdhani for display (headings, nav, buttons, chips) */
+  font-family: var(--font-inter), 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 400;
   line-height: 1.7;
   transition: background-color var(--transition-default), color var(--transition-default);
 }
@@ -61,6 +92,20 @@ body::before {
   opacity: 0.03;
   z-index: 9999;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.display-xl,
+.display-lg,
+.chip,
+.arrow-link,
+.font-display {
+  font-family: var(--font-rajdhani), 'Rajdhani', ui-sans-serif, system-ui, sans-serif;
 }
 
 h1,
@@ -127,40 +172,47 @@ html {
 
 /* Selection */
 ::selection {
-  background: var(--fg);
-  color: var(--bg);
+  background: var(--accent);
+  color: oklch(100% 0 0);
+}
+
+/* Form focus - accent ring */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 /* Utilities */
+/* Narrow column + big fluid gutters = breathing room on every viewport.
+   !important guards against Tailwind's own `container` utility overriding
+   these in the compiled cascade. */
 .container {
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
+  width: 100% !important;
+  max-width: 1360px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: clamp(1.5rem, 6vw, 7rem) !important;
+  padding-right: clamp(1.5rem, 6vw, 7rem) !important;
 }
 
-@media (min-width: 768px) {
-  .container {
-    padding: 0 2.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    padding: 0 3rem;
-  }
+/* Consistent, generous vertical rhythm for page sections */
+.section-pad {
+  padding-top: clamp(7rem, 16vh, 13rem);
+  padding-bottom: clamp(7rem, 16vh, 13rem);
 }
 
 /* Section spacing - generous breathing room */
 .section-spacing {
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+  padding-top: 9rem;
+  padding-bottom: 9rem;
 }
 
 @media (min-width: 768px) {
   .section-spacing {
-    padding-top: 12rem;
-    padding-bottom: 12rem;
+    padding-top: 13rem;
+    padding-bottom: 13rem;
   }
 }
 
@@ -346,6 +398,111 @@ html {
 
 .marquee-track:hover {
   animation-play-state: paused;
+}
+
+/* ─── Editorial (jdesign-style) utilities ───────────────────── */
+
+/* Navbar: transparent at top of page, frosted once scrolling */
+.nav-solid {
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+
+/* Huge display headings */
+.display-xl {
+  font-size: clamp(2.75rem, 8vw, 5.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+.display-lg {
+  font-size: clamp(2.25rem, 6vw, 4.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+}
+
+/* Tag chip */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.15rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.chip:hover {
+  background: var(--accent);
+  color: oklch(100% 0 0);
+  border-color: var(--accent);
+}
+
+/* Understated arrow link (jdesign-style CTA) */
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  position: relative;
+  padding-bottom: 0.2rem;
+}
+
+.arrow-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.arrow-link:hover {
+  color: var(--accent);
+  opacity: 1;
+}
+
+/* On inverted sections the accent needs the flipped variant for contrast */
+.on-inverse .arrow-link:hover {
+  color: var(--inverse-accent);
+}
+
+.arrow-link:hover::after {
+  transform: scaleX(1);
+}
+
+.arrow-link .arrow {
+  transition: transform 0.3s ease;
+}
+
+.arrow-link:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* Big scrolling text marquee */
+@keyframes textMarquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.text-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: textMarquee 22s linear infinite;
+  will-change: transform;
 }
 
 /* ─── Footer logo theme switching (no JS needed) ───────────── */

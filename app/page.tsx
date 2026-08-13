@@ -1,9 +1,10 @@
-import { Hero } from '@/components/home/hero';
-import { StatsCounter } from '@/components/home/stats-counter';
-import { ServicesPricing } from '@/components/home/services-pricing';
-import { PillarToggle } from '@/components/home/pillar-toggle';
-import { PhilosophySection } from '@/components/home/philosophy-section';
+import { EditorialHero } from '@/components/home/editorial-hero';
+import { WorkShowcase } from '@/components/home/work-showcase';
+import { WhoWeAre } from '@/components/home/who-we-are';
+import { ServicesPillars } from '@/components/home/services-pillars';
+import { ProcessSection } from '@/components/home/process-section';
 import { ClientMarquee } from '@/components/home/client-marquee';
+import { Testimonials } from '@/components/home/testimonials';
 import { ContactCTA } from '@/components/home/contact-cta';
 import { services } from '@/lib/services';
 import { getFeaturedPortfolioItems } from '@/lib/portfolio';
@@ -13,35 +14,29 @@ export default function HomePage() {
 
   return (
     <div className="bg-[var(--bg)] min-h-screen">
-      <Hero />
+      {/* Editorial hero - greeting, big headline, service chips */}
+      <EditorialHero />
 
-      {/* Stats strip -immediate trust signal after hero */}
-      <StatsCounter />
+      {/* Portfolio - gray color block with rounded cards */}
+      <WorkShowcase portfolioByService={portfolioByService} services={services} />
 
-      <div className="section-divider" />
+      {/* About - inverted block + text marquee */}
+      <WhoWeAre />
 
-      {/* Services & Pricing */}
-      <ServicesPricing />
+      {/* Services - deep gray block, 3 pillar columns */}
+      <ServicesPillars />
 
-      <div className="section-divider" />
-
-      {/* Portfolio preview -tabbed by service */}
-      <PillarToggle portfolioByService={portfolioByService} services={services} />
-
-      <div className="section-divider" />
-
-      {/* Philosophy / Approach */}
-      <PhilosophySection />
+      {/* Process steps + values - numbered editorial lists */}
+      <ProcessSection />
 
       {/* Client logos marquee */}
       <ClientMarquee />
 
-      <div className="section-divider" />
+      {/* Reviews - hidden automatically while lib/testimonials.ts is empty */}
+      <Testimonials />
 
       {/* Contact */}
       <ContactCTA />
-
-      <div style={{ height: '120px' }} aria-hidden="true" />
     </div>
   );
 }

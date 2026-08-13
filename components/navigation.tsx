@@ -13,7 +13,6 @@ const navItems = [
     { label: 'portfolio', href: '/portfolio' },
     { label: 'clients', href: '/clients' },
     { label: 'about', href: '/about' },
-    { label: 'contact', href: '/contact' },
     { label: 'unrested', href: '/unrested' },
 ];
 
@@ -22,6 +21,7 @@ export function Navigation() {
     const { theme } = useTheme();
     const [mounted, setMounted] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
         setMounted(true);
@@ -32,38 +32,55 @@ export function Navigation() {
         setIsOpen(false);
     }, [pathname]);
 
+    // Transparent over the top of the page, frosted once scrolling
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 24);
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
     const logoSrc = mounted && theme === 'light'
         ? '/brand/logo-mark-light.svg'
         : '/brand/logo-mark-dark.svg';
 
+    const solid = scrolled || isOpen;
+
     return (
         <motion.nav
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -16 }}
             animate={{ opacity: 1, y: 0 }}
-            className="sticky top-0 left-0 right-0 z-50 border-b border-[var(--border)] bg-[var(--bg)]/80 backdrop-blur-md md:fixed"
+            transition={{ duration: 0.6 }}
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-transparent ${
+                solid ? 'nav-solid' : 'bg-transparent'
+            }`}
         >
-            <div className="container flex items-center justify-between h-20 gap-4">
-                <Link href="/" className="flex items-center flex-shrink-0">
-                    <div className="w-10 h-10 relative">
+            {/* Desktop: logo left / links centered / contact right */}
+            <div className="container grid grid-cols-[1fr_auto] md:grid-cols-[1fr_auto_1fr] items-center h-[88px] gap-6">
+                <Link href="/" className="flex items-center gap-3 justify-self-start group" aria-label="akashic dreams - home">
+                    <div className="relative w-10 h-10 shrink-0">
                         {mounted ? (
                             <Image
                                 src={logoSrc}
-                                alt="Akashic Dreams"
-                                width={40}
-                                height={40}
+                                alt="akashic dreams"
+                                fill
                                 className="object-contain"
+                                priority
                                 onError={(e) => {
                                     e.currentTarget.style.display = 'none';
                                 }}
                             />
                         ) : (
-                            <div className="w-10 h-10 bg-[var(--border)]" />
+                            <div className="w-10 h-10" />
                         )}
                     </div>
+                    <span className="hidden sm:block font-display text-sm font-bold lowercase tracking-widest group-hover:opacity-70 transition-opacity">
+                        akashic dreams
+                    </span>
                 </Link>
 
-                {/* Desktop Navigation */}
-                <div className="hidden md:flex items-center gap-8">
+                {/* Centered links */}
+                <div className="hidden md:flex items-center justify-center gap-10 lg:gap-12">
                     {navItems.map((item) => {
                         const isActive = pathname === item.href ||
                             (item.href !== '/' && pathname.startsWith(item.href));
@@ -72,24 +89,34 @@ export function Navigation() {
                             <Link
                                 key={item.href}
                                 href={item.href}
-                                className="relative text-sm lowercase tracking-wide py-2"
+                                className={`font-display text-base lowercase tracking-wide transition-colors duration-300 hover:!opacity-100 ${
+                                    isActive
+                                        ? 'text-[var(--fg)] font-semibold'
+                                        : 'text-[var(--muted)] hover:text-[var(--fg)]'
+                                }`}
                             >
                                 {item.label}
-                                {isActive && (
-                                    <motion.div
-                                        layoutId="nav-indicator"
-                                        className="absolute bottom-0 left-0 right-0 h-[2px] bg-[var(--fg)]"
-                                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                                    />
-                                )}
                             </Link>
                         );
                     })}
-                    <ThemeToggle />
                 </div>
 
-                {/* Mobile Burger & Theme */}
-                <div className="flex items-center gap-4 md:hidden">
+                {/* Right: theme toggle + contact CTA */}
+                <div className="hidden md:flex items-center justify-self-end gap-6">
+                    <ThemeToggle />
+                    <Link
+                        href="/contact"
+                        className="group relative font-display px-7 py-2.5 border border-[var(--fg)] rounded-full text-base lowercase tracking-wide overflow-hidden transition-colors duration-400"
+                    >
+                        <span className="relative z-10 group-hover:text-[var(--bg)] transition-colors duration-400">
+                            let&apos;s talk
+                        </span>
+                        <span className="absolute inset-0 bg-[var(--fg)] scale-y-0 group-hover:scale-y-100 transition-transform duration-400 origin-bottom" />
+                    </Link>
+                </div>
+
+                {/* Mobile: theme toggle + burger */}
+                <div className="flex items-center justify-self-end gap-4 md:hidden">
                     <ThemeToggle />
                     <button
                         onClick={() => setIsOpen(!isOpen)}
@@ -120,8 +147,8 @@ export function Navigation() {
                 animate={isOpen ? { height: 'auto', opacity: 1 } : { height: 0, opacity: 0 }}
                 className="overflow-hidden md:hidden bg-[var(--bg)] border-b border-[var(--border)]"
             >
-                <div className="container pt-8 pb-10 flex flex-col gap-5">
-                    {navItems.map((item, i) => {
+                <div className="container pt-8 pb-12 flex flex-col gap-6">
+                    {[...navItems, { label: 'contact', href: '/contact' }].map((item, i) => {
                         const isActive = pathname === item.href;
                         return (
                             <motion.div
@@ -137,28 +164,13 @@ export function Navigation() {
                                     <span className="text-[10px] font-mono tracking-wider text-[var(--muted)] font-semibold w-5">
                                         0{i + 1}
                                     </span>
-                                    <span className="text-2xl font-bold lowercase tracking-tight group-hover:text-[var(--fg)] transition-colors">
+                                    <span className="text-3xl font-bold lowercase tracking-tight group-hover:text-[var(--fg)] transition-colors">
                                         {item.label}
                                     </span>
                                 </Link>
                             </motion.div>
                         );
                     })}
-
-                    {/* Contact nudge */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={isOpen ? { opacity: 1 } : { opacity: 0 }}
-                        transition={{ duration: 0.4, delay: isOpen ? 0.38 : 0 }}
-                        className="mt-4 pt-6 border-t border-[var(--border)]"
-                    >
-                        <a
-                            href="mailto:admin@akashicdreams.dev"
-                            className="text-xs tracking-[0.25em] text-[var(--muted)] hover:text-[var(--fg)] transition-colors lowercase font-semibold"
-                        >
-                            admin@akashicdreams.dev →
-                        </a>
-                    </motion.div>
                 </div>
             </motion.div>
         </motion.nav>

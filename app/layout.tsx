@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Rajdhani } from 'next/font/google';
+import { Rajdhani, Inter } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import { ServiceTransitionProvider } from '@/components/providers/service-transition-provider';
@@ -10,9 +10,14 @@ import { CustomCursor } from '@/components/ui/custom-cursor';
 import { PageTransitionBar } from '@/components/ui/page-transition';
 
 const rajdhani = Rajdhani({
-  weight: ['400', '700'],
+  weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
   variable: '--font-rajdhani',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
 });
 
 export const metadata: Metadata = {
@@ -46,14 +51,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${rajdhani.variable} antialiased`}>
+      <body className={`${rajdhani.variable} ${inter.variable} antialiased`}>
         <ThemeProvider>
           <ServiceTransitionProvider>
             <CustomCursor />
             <PageTransitionBar />
             <LoadingScreen />
             <Navigation />
-            <main className="pt-0 md:pt-20">{children}</main>
+            <main className="pt-[88px]">{children}</main>
             <Footer />
           </ServiceTransitionProvider>
         </ThemeProvider>
