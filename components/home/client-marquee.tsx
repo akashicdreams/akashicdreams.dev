@@ -7,7 +7,6 @@ const clients = [
     { name: 'farmacia farmilla', icon: '/clients/farmacia-farmilla/icon.png' },
     { name: 'g&a fashion import', icon: '/clients/g&a-fashion-import/icon.png' },
     { name: 'acces spre succes', icon: '/clients/acces-spre-succes/icon.png' },
-    { name: 'akashic dreams', icon: '/clients/akashic-dreams/icon.png' },
 ];
 
 // Triple so the loop never shows a gap regardless of viewport width
@@ -46,7 +45,7 @@ export function ClientMarquee() {
 
             {/* Label */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none opacity-0">
-                trusted by
+                clienții noștri
             </div>
 
             <div className="flex marquee-track">

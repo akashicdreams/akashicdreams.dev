@@ -9,10 +9,10 @@ import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
 const navItems = [
-    { label: 'services', href: '/services' },
-    { label: 'portfolio', href: '/portfolio' },
-    { label: 'clients', href: '/clients' },
-    { label: 'about', href: '/about' },
+    { label: 'servicii', href: '/services' },
+    { label: 'portofoliu', href: '/portfolio' },
+    { label: 'clienți', href: '/clients' },
+    { label: 'despre', href: '/about' },
     { label: 'unrested', href: '/unrested' },
 ];
 
@@ -109,7 +109,7 @@ export function Navigation() {
                         className="group relative font-display px-7 py-2.5 border border-[var(--fg)] rounded-full text-base lowercase tracking-wide overflow-hidden transition-colors duration-400"
                     >
                         <span className="relative z-10 group-hover:text-[var(--bg)] transition-colors duration-400">
-                            let&apos;s talk
+                            hai să vorbim
                         </span>
                         <span className="absolute inset-0 bg-[var(--fg)] scale-y-0 group-hover:scale-y-100 transition-transform duration-400 origin-bottom" />
                     </Link>

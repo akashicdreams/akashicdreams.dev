@@ -4,8 +4,8 @@ import { services } from '@/lib/services';
 import { ClientsPageClient } from '@/components/clients/clients-page-client';
 
 export const metadata: Metadata = {
-    title: 'clients',
-    description: 'the companies and individuals we work with across all our services.',
+    title: 'clienți',
+    description: 'afacerile cu care lucrăm din bistrița-năsăud și împrejurimi, și ce am construit pentru fiecare.',
 };
 
 export default function ClientsPage() {

@@ -257,13 +257,17 @@ export interface ClientWithPortfolio {
   services: { serviceSlug: string; serviceTitle: string; items: PortfolioItem[] }[];
 }
 
+/** Our own studio - our in-house projects stay in the portfolio, but we
+ *  are not one of our own clients, so we never list ourselves as one. */
+const OWN_BRAND_SLUG = 'akashic-dreams';
+
 export function getAllClientsWithPortfolio(): ClientWithPortfolio[] {
   const all = getAllPortfolioItems();
   const clientMap = new Map<string, { serviceSlug: string; items: PortfolioItem[] }[]>();
 
   for (const [serviceSlug, items] of Object.entries(all)) {
     for (const item of items) {
-      if (!item.clientSlug) continue;
+      if (!item.clientSlug || item.clientSlug === OWN_BRAND_SLUG) continue;
       if (!clientMap.has(item.clientSlug)) {
         clientMap.set(item.clientSlug, []);
       }

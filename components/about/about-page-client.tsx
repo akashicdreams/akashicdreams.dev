@@ -10,36 +10,36 @@ import { AsciiArtFigure } from '@/components/ui/ascii-figure';
 const values = [
     {
         number: '01',
-        title: 'craft over shortcuts',
-        description: 'every line of code, every frame, every pixel -intentional. we don\'t rush to ship, we refine until it feels right.',
+        title: 'tot de la aceiași oameni',
+        description: 'site, brand, poze și social media, gândite împreună. nu mai coordonezi patru furnizori care nu vorbesc între ei.',
     },
     {
         number: '02',
-        title: 'simplicity as art',
-        description: 'the best solutions feel effortless. we strip away complexity until only the essential remains.',
+        title: 'construim, nu asamblăm',
+        description: 'scriem cod de la zero și ne facem propriile aplicații. nu montăm șabloane cumpărate.',
     },
     {
         number: '03',
-        title: 'consciousness in creation',
-        description: 'we approach every project with presence and awareness. technology is a tool for expanding what\'s possible.',
+        title: 'vorbim pe înțelesul tău',
+        description: 'fără jargon tehnic. îți explicăm ce facem, de ce, și cât costă, în cuvinte normale.',
     },
     {
         number: '04',
-        title: 'stories that resonate',
-        description: 'whether through code or camera, we build narratives that connect with people on a deeper level.',
+        title: 'rămânem după livrare',
+        description: 'suport, ajustări și optimizare după lansare. nu dispărem după ce am trimis factura.',
     },
 ];
 
 const team = [
     {
         name: 'șorecău adrian-vasile',
-        role: 'photographer',
+        role: 'fotograf',
         number: '01',
         image: '/images/team/photographer.png',
     },
     {
         name: 'șorecău adrian-vasile',
-        role: 'software developer',
+        role: 'developer',
         number: '02',
         image: '/images/team/software_developer.png',
     },
@@ -102,7 +102,7 @@ export function AboutPageClient() {
                             transition={{ duration: 0.6, delay: 0.2 }}
                             className="text-xs tracking-[0.4em] text-[var(--muted)] mb-8 lowercase font-semibold"
                         >
-                            our story
+                            povestea noastră
                         </motion.span>
 
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold lowercase tracking-tighter mb-8">
@@ -130,7 +130,7 @@ export function AboutPageClient() {
                             transition={{ duration: 0.8, delay: 0.7 }}
                             className="text-lg md:text-xl text-[var(--muted)] lowercase max-w-lg leading-relaxed"
                         >
-                            where code meets consciousness
+                            sunt adrian. construiesc site-uri, aplicații și identități vizuale din sângeorz-băi.
                         </motion.p>
                     </motion.div>
                 </div>
@@ -151,10 +151,10 @@ export function AboutPageClient() {
                         style={{ maxWidth: '56rem' }}
                     >
                         <span className="text-xs tracking-[0.4em] text-[var(--muted)] lowercase font-semibold block mb-10">
-                            the meaning
+                            cine suntem
                         </span>
                         <h2 className="text-4xl md:text-6xl font-bold lowercase tracking-tighter mb-16">
-                            what is akashic?
+                            un studio mic, cu tot ce ai nevoie
                         </h2>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
@@ -163,7 +163,7 @@ export function AboutPageClient() {
                             transition={{ duration: 0.8, delay: 0.2 }}
                             className="text-lg md:text-2xl lowercase leading-relaxed text-[var(--muted)] mb-10"
                         >
-                            in ancient sanskrit, &ldquo;akasha&rdquo; means the ether -the fundamental substance from which all things emerge. the akashic records are believed to be an infinite library of every thought, event, and possibility that has ever existed or will ever exist.
+                            akashic dreams este un studio mic din sângeorz-băi, bistrița-năsăud. construim site-uri și aplicații, facem identități vizuale, fotografiem, filmăm și administrăm social media pentru afaceri din județ și din cluj.
                         </motion.p>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
@@ -172,7 +172,7 @@ export function AboutPageClient() {
                             transition={{ duration: 0.8, delay: 0.4 }}
                             className="text-lg md:text-2xl lowercase leading-relaxed text-[var(--fg)] font-light"
                         >
-                            we chose this name because we believe creation is not just technical -it&apos;s spiritual. every project begins as an idea floating in the ether, and our job is to pull it into reality with code, design, and intention.
+                            diferența este că le facem pe toate. majoritatea firmelor lucrează cu un programator, o firmă de social media și un fotograf separat. la noi, totul vine de la aceiași oameni, cu aceeași direcție vizuală.
                         </motion.p>
                     </motion.div>
                 </div>
@@ -201,10 +201,10 @@ export function AboutPageClient() {
                         style={{ maxWidth: '56rem' }}
                     >
                         <span className="text-xs tracking-[0.4em] text-[var(--muted)] lowercase font-semibold block mb-10">
-                            who we are
+                            numele
                         </span>
                         <h2 className="text-4xl md:text-6xl font-bold lowercase tracking-tighter mb-16">
-                            a laptop and a camera
+                            de ce akashic dreams?
                         </h2>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
@@ -213,7 +213,7 @@ export function AboutPageClient() {
                             transition={{ duration: 0.8, delay: 0.2 }}
                             className="text-lg md:text-2xl lowercase leading-relaxed text-[var(--muted)] mb-10"
                         >
-                            akashic dreams is a small creative and technology studio. we live at the intersection of software engineering and visual storytelling -building digital systems that work beautifully and capturing moments that tell real stories.
+                            în sanscrită, &ldquo;akasha&rdquo; înseamnă eterul, substanța din care apar toate lucrurile. am ales numele pentru că fiecare proiect începe ca o idee, iar treaba noastră este să o aducem în realitate.
                         </motion.p>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
@@ -222,7 +222,7 @@ export function AboutPageClient() {
                             transition={{ duration: 0.8, delay: 0.4 }}
                             className="text-lg md:text-2xl lowercase leading-relaxed text-[var(--fg)] font-light"
                         >
-                            we don&apos;t follow trends. we build with care, ship with confidence, and believe that the best work comes from a place of calm focus rather than chaotic hustle. sometimes we&apos;re writing code. sometimes we&apos;re behind a camera. either way, we create things that feel simple and a bit magical.
+                            în rest, suntem foarte pământeni: livrăm la timp, răspundem la telefon și construim lucruri care funcționează.
                         </motion.p>
                     </motion.div>
                 </div>
@@ -249,10 +249,10 @@ export function AboutPageClient() {
                         className="flex flex-col items-center text-center mb-28 md:mb-36"
                     >
                         <span className="text-xs tracking-[0.4em] text-[var(--muted)] lowercase font-semibold mb-6">
-                            the people
+                            oamenii
                         </span>
                         <h2 className="text-4xl md:text-6xl font-bold lowercase tracking-tighter">
-                            the team
+                            echipa
                         </h2>
                     </motion.div>
 
@@ -351,10 +351,10 @@ export function AboutPageClient() {
                         className="flex flex-col items-center text-center mb-28 md:mb-36"
                     >
                         <span className="text-xs tracking-[0.4em] text-[var(--muted)] lowercase font-semibold mb-6">
-                            how we think
+                            cum lucrăm
                         </span>
                         <h2 className="text-4xl md:text-6xl font-bold lowercase tracking-tighter">
-                            our values
+                            principiile noastre
                         </h2>
                     </motion.div>
 
@@ -409,10 +409,10 @@ export function AboutPageClient() {
                         style={{ maxWidth: '56rem' }}
                     >
                         <span className="text-xs tracking-[0.4em] text-[var(--muted)] lowercase font-semibold block mb-10">
-                            two pillars
+                            doi piloni
                         </span>
                         <h2 className="text-4xl md:text-6xl font-bold lowercase tracking-tighter mb-20">
-                            software & visuals
+                            software și vizual
                         </h2>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20 text-center">
@@ -427,7 +427,7 @@ export function AboutPageClient() {
                                     software
                                 </h3>
                                 <p className="text-base text-[var(--muted)] lowercase leading-relaxed">
-                                    we build websites, mobile apps, and digital systems from the ground up. clean architecture, modern frameworks, and a relentless focus on performance. every project is treated as a craft -from the first commit to the final deploy.
+                                    construim site-uri, aplicații mobile și sisteme digitale de la zero. arhitectură curată, tehnologii moderne și atenție constantă la viteză. fiecare proiect este tratat ca o meserie, de la primul commit până la lansare.
                                 </p>
                             </motion.div>
 
@@ -439,10 +439,10 @@ export function AboutPageClient() {
                             >
                                 <span className="text-xs font-mono text-[var(--muted)] tracking-wider font-semibold block mb-5">02</span>
                                 <h3 className="text-2xl md:text-3xl font-bold lowercase tracking-tight mb-6">
-                                    visuals
+                                    vizual
                                 </h3>
                                 <p className="text-base text-[var(--muted)] lowercase leading-relaxed">
-                                    photography, videography, and brand identity. we capture real moments and shape visual languages that communicate who you are. from events to campaigns, every image and frame is carefully composed and edited.
+                                    fotografie, video și identitate vizuală. surprindem momente reale și construim limbaje vizuale care spun cine ești. de la evenimente la campanii, fiecare cadru este gândit și editat cu grijă.
                                 </p>
                             </motion.div>
                         </div>
@@ -471,20 +471,20 @@ export function AboutPageClient() {
                         className="text-center flex flex-col items-center"
                     >
                         <span className="text-xs tracking-[0.4em] text-[var(--muted)] lowercase font-semibold block mb-10">
-                            let&apos;s create
+                            hai să creăm
                         </span>
                         <h2 className="text-4xl md:text-6xl font-bold lowercase tracking-tighter mb-10">
-                            ready to build something?
+                            gata să construim ceva?
                         </h2>
                         <p className="text-lg text-[var(--muted)] lowercase mb-14 max-w-md">
-                            whether it&apos;s a website, an app, a brand, or a story -we&apos;re here to make it happen.
+                            site, aplicație, brand sau poveste vizuală. spune-ne ce ai nevoie și ne ocupăm.
                         </p>
                         <Link
                             href="/contact"
                             className="group relative inline-block px-16 py-6 text-lg lowercase tracking-wider font-bold rounded-sm overflow-hidden transition-all duration-500 border-2 border-[var(--fg)]"
                         >
                             <span className="relative z-10 group-hover:text-[var(--bg)] transition-colors duration-500">
-                                get in touch
+                                hai să vorbim
                             </span>
                             <div className="absolute inset-0 bg-[var(--fg)] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                         </Link>

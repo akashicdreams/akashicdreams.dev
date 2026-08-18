@@ -56,11 +56,11 @@ export function Testimonials() {
                     className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-20 md:mb-28"
                 >
                     <h2 className="display-lg lowercase max-w-3xl">
-                        what clients say.
+                        ce spun clienții.
                     </h2>
                     <div className="flex items-baseline gap-2.5 text-sm text-[var(--muted)] lowercase tracking-wide shrink-0">
                         <span className="font-display text-3xl font-bold text-[var(--fg)] tabular-nums">5.0</span>
-                        <span>/ 5 from our clients</span>
+                        <span>/ 5 de la clienții noștri</span>
                     </div>
                 </motion.div>
 

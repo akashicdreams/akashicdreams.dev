@@ -76,7 +76,7 @@ export function ContactPageClient() {
                             transition={{ duration: 0.6, delay: 0.2 }}
                             className="text-xs tracking-[0.4em] text-[var(--muted)] mb-8 lowercase font-semibold"
                         >
-                            get in touch
+                            hai să vorbim
                         </motion.span>
 
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold lowercase tracking-tighter mb-8">
@@ -94,7 +94,7 @@ export function ContactPageClient() {
                                 transition={{ duration: 0.8, delay: 0.5 }}
                                 className="block"
                             >
-                                something together
+                                despre proiectul tău
                             </motion.span>
                         </h1>
 
@@ -156,10 +156,10 @@ export function ContactPageClient() {
                         className="flex flex-col items-center text-center mb-20 md:mb-28"
                     >
                         <span className="text-xs tracking-[0.4em] text-[var(--muted)] lowercase font-semibold mb-6">
-                            reach out
+                            scrie-ne
                         </span>
                         <h2 className="text-4xl md:text-6xl font-bold lowercase tracking-tighter">
-                            how to find us
+                            cum ne găsești
                         </h2>
                     </motion.div>
 
@@ -197,7 +197,7 @@ export function ContactPageClient() {
                                     transition={{ duration: 0.5, delay: 0.4 }}
                                 >
                                     <h3 className="text-xs tracking-[0.3em] text-[var(--muted)] lowercase mb-4 font-semibold">
-                                        phone
+                                        telefon
                                     </h3>
                                     <a
                                         href="tel:+40741963166"
@@ -214,7 +214,7 @@ export function ContactPageClient() {
                                     transition={{ duration: 0.5, delay: 0.5 }}
                                 >
                                     <h3 className="text-xs tracking-[0.3em] text-[var(--muted)] lowercase mb-4 font-semibold">
-                                        address
+                                        adresă
                                     </h3>
                                     <a
                                         href="https://maps.app.goo.gl/TjjrN1sErVWQexCAA"
@@ -222,7 +222,7 @@ export function ContactPageClient() {
                                         rel="noopener noreferrer"
                                         className="text-xl hover:opacity-70 transition-opacity lowercase"
                                     >
-                                        plopului street, 2h, sângeorz-băi, romania
+                                        strada plopului 2h, sângeorz-băi, românia
                                     </a>
                                 </motion.div>
 
@@ -284,10 +284,10 @@ export function ContactPageClient() {
                         className="flex flex-col items-center text-center mb-12"
                     >
                         <span className="text-xs tracking-[0.4em] text-[var(--muted)] lowercase font-semibold mb-6">
-                            location
+                            locație
                         </span>
                         <h2 className="text-4xl md:text-6xl font-bold lowercase tracking-tighter">
-                            find us here
+                            ne găsești aici
                         </h2>
                     </motion.div>
 
@@ -332,10 +332,10 @@ export function ContactPageClient() {
                         className="text-center flex flex-col items-center"
                     >
                         <span className="text-xs tracking-[0.4em] text-[var(--muted)] lowercase font-semibold block mb-10">
-                            what happens next
+                            ce urmează
                         </span>
                         <h2 className="text-4xl md:text-6xl font-bold lowercase tracking-tighter mb-10">
-                            we respond fast
+                            răspundem repede
                         </h2>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
@@ -344,7 +344,7 @@ export function ContactPageClient() {
                             transition={{ duration: 0.8, delay: 0.2 }}
                             className="text-lg md:text-xl text-[var(--muted)] lowercase max-w-lg leading-relaxed"
                         >
-                            expect a reply within 24–48 hours. we&apos;ll talk through your vision, scope the work, and figure out the best way forward -no pressure, no jargon.
+                            primești răspuns în 24 până la 48 de ore. discutăm despre ce ai nevoie, stabilim ce presupune proiectul și găsim cea mai bună variantă. fără presiune și fără jargon.
                         </motion.p>
                     </motion.div>
                 </div>

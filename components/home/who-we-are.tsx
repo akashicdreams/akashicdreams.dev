@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-const marqueeText = Array(8).fill("let's work together!");
+const marqueeText = Array(8).fill('hai să lucrăm împreună!');
 
 export function WhoWeAre() {
     return (
@@ -18,7 +18,7 @@ export function WhoWeAre() {
                         transition={{ duration: 0.7 }}
                         className="lg:col-span-5"
                     >
-                        <h2 className="display-lg lowercase">who are we?</h2>
+                        <h2 className="display-lg lowercase">cine suntem?</h2>
                     </motion.div>
 
                     {/* Prose */}
@@ -30,17 +30,19 @@ export function WhoWeAre() {
                         className="lg:col-span-7 space-y-8 text-lg md:text-2xl leading-relaxed lowercase"
                     >
                         <p>
-                            a small studio from sângeorz-băi, românia. clear ideas, attention
-                            to detail, and the drive to build things that actually work.
+                            un studio mic din sângeorz-băi, care lucrează cu afaceri din
+                            bistrița-năsăud și cluj. idei clare, atenție la detalii și
+                            dorința de a construi lucruri care chiar funcționează.
                         </p>
                         <p className="text-[var(--inverse-muted)]">
-                            what makes us happiest? when clients come back, or recommend
-                            us further.
+                            majoritatea firmelor lucrează cu patru furnizori diferiți pentru
+                            site, brand, poze și social media. la noi găsești tot într-un
+                            singur loc, cu o singură direcție vizuală.
                         </p>
 
                         <div className="pt-6">
                             <Link href="/about" className="arrow-link text-lg lowercase">
-                                find out more <span className="arrow">→</span>
+                                află mai multe <span className="arrow">→</span>
                             </Link>
                         </div>
                     </motion.div>

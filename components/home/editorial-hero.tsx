@@ -33,7 +33,7 @@ export function EditorialHero() {
                     transition={{ duration: 0.6, delay: 0.1 }}
                     className="text-2xl md:text-3xl font-bold lowercase mb-10 md:mb-14"
                 >
-                    hello!{' '}
+                    salut!{' '}
                     <motion.span
                         aria-hidden="true"
                         className="inline-block origin-[70%_70%]"
@@ -51,23 +51,22 @@ export function EditorialHero() {
                         transition={{ duration: 0.7, delay: 0.25 }}
                         className="block"
                     >
-                        we are the studio of
+                        o singură echipă
                     </motion.span>
                     <motion.span
                         {...fadeUp}
                         transition={{ duration: 0.7, delay: 0.4 }}
                         className="block"
                     >
-                        software{' '}
-                        <span className="inline-block align-baseline text-[var(--accent)]">+</span>{' '}
-                        visual stories
+                        pentru tot ce{' '}
+                        <span className="inline-block align-baseline text-[var(--accent)]">arată</span>
                     </motion.span>
                     <motion.span
                         {...fadeUp}
                         transition={{ duration: 0.7, delay: 0.55 }}
                         className="block"
                     >
-                        dedicated to your ideas
+                        afacerea ta lumii
                         {mounted && (
                             <span className="inline-block relative w-[0.8em] h-[0.8em] ml-4 align-baseline translate-y-[0.12em]">
                                 <Image
@@ -88,7 +87,8 @@ export function EditorialHero() {
                     transition={{ duration: 0.7, delay: 0.75 }}
                     className="text-lg md:text-xl text-[var(--muted)] lowercase max-w-xl mt-12 md:mt-14 leading-relaxed"
                 >
-                    websites, apps, brands, and the stories told around them.
+                    site, brand, poze, video și social media. gândite împreună,
+                    livrate de aceiași oameni.
                 </motion.p>
 
                 {/* CTA row */}
@@ -102,14 +102,14 @@ export function EditorialHero() {
                         className="group relative font-display px-9 py-4 border border-[var(--fg)] rounded-full text-lg lowercase tracking-wide overflow-hidden transition-colors duration-400"
                     >
                         <span className="relative z-10 group-hover:text-[var(--bg)] transition-colors duration-400">
-                            let&apos;s talk <span className="inline-block group-hover:translate-x-1 transition-transform duration-300">→</span>
+                            hai să vorbim <span className="inline-block group-hover:translate-x-1 transition-transform duration-300">→</span>
                         </span>
                         <span className="absolute inset-0 bg-[var(--fg)] scale-y-0 group-hover:scale-y-100 transition-transform duration-400 origin-bottom" />
                     </Link>
 
                     <div className="flex items-baseline gap-2.5 text-sm text-[var(--muted)] lowercase tracking-wide">
                         <span className="font-display text-3xl font-bold text-[var(--fg)] tabular-nums">15+</span>
-                        <span>projects delivered</span>
+                        <span>proiecte livrate</span>
                     </div>
                 </motion.div>
 
@@ -121,7 +121,7 @@ export function EditorialHero() {
                     className="mt-28 md:mt-36"
                 >
                     <p className="text-xs tracking-[0.35em] text-[var(--muted)] lowercase font-semibold mb-8">
-                        how can we help?
+                        cu ce te putem ajuta?
                     </p>
                     <div className="flex flex-wrap gap-4">
                         {services.map((service) => (

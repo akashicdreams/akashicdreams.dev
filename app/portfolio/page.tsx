@@ -4,8 +4,8 @@ import { services } from '@/lib/services';
 import { PortfolioOverviewClient } from '@/components/portfolio/portfolio-overview-client';
 
 export const metadata: Metadata = {
-    title: 'portfolio',
-    description: 'explore our work across web development, social media, mobile apps, videography, photography, and brand identity.',
+    title: 'portofoliu',
+    description: 'proiectele noastre: site-uri, aplicații mobile, identitate vizuală, fotografie, video și social media.',
 };
 
 export default function PortfolioPage() {

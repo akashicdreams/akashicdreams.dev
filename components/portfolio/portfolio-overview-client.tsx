@@ -310,7 +310,7 @@ export function PortfolioOverviewClient({ portfolioByService, services }: Portfo
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xs tracking-[0.4em] text-[var(--muted)] mb-8 lowercase font-semibold"
             >
-              our work
+              portofoliu
             </motion.span>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold lowercase tracking-tighter mb-8 text-center">
               <TextScramble text="portfolio" duration={900} delay={300} />
@@ -321,7 +321,7 @@ export function PortfolioOverviewClient({ portfolioByService, services }: Portfo
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-lg md:text-xl text-[var(--muted)] lowercase text-center"
             >
-              projects across all our services
+              proiecte din toate serviciile noastre
             </motion.p>
           </motion.header>
         </div>
@@ -378,11 +378,11 @@ export function PortfolioOverviewClient({ portfolioByService, services }: Portfo
         ) : (
           <div className="container max-w-7xl mx-auto px-6 py-28">
             <div className="text-center">
-              <p className="text-xl text-[var(--muted)] lowercase mb-4">portfolio coming soon.</p>
+              <p className="text-xl text-[var(--muted)] lowercase mb-4">portofoliul vine în curând.</p>
               <p className="text-sm text-[var(--muted)]">
-                check back later or{' '}
+                revino mai târziu sau{' '}
                 <Link href="/services" className="underline hover:text-[var(--fg)] transition-colors">
-                  explore our services
+                  vezi serviciile noastre
                 </Link>
               </p>
             </div>
@@ -400,10 +400,10 @@ export function PortfolioOverviewClient({ portfolioByService, services }: Portfo
                 className="flex flex-col items-center text-center mb-10"
               >
                 <span className="text-xs tracking-[0.4em] text-[var(--muted)] lowercase font-semibold mb-4">
-                  more coming soon
+                  în curând
                 </span>
                 <h2 className="text-2xl md:text-4xl font-bold lowercase tracking-tighter">
-                  other services
+                  alte servicii
                 </h2>
               </motion.div>
 

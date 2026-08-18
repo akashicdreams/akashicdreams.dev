@@ -3,10 +3,10 @@ import Image from 'next/image';
 import { InstagramIcon, FacebookIcon, LinkedInIcon } from '@/components/ui/social-icons';
 
 const navLinks = [
-    { label: 'services', href: '/services' },
-    { label: 'portfolio', href: '/portfolio' },
-    { label: 'clients', href: '/clients' },
-    { label: 'about', href: '/about' },
+    { label: 'servicii', href: '/services' },
+    { label: 'portofoliu', href: '/portfolio' },
+    { label: 'clienți', href: '/clients' },
+    { label: 'despre', href: '/about' },
     { label: 'contact', href: '/contact' },
     { label: 'unrested', href: '/unrested' },
 ];
@@ -51,8 +51,8 @@ export function Footer() {
                             </span>
                         </Link>
                         <p className="text-xs text-[var(--muted)] lowercase tracking-wider leading-relaxed max-w-[220px]">
-                            software & visual studio<br />
-                            sângeorz-băi, romania
+                            studio de software și creație<br />
+                            sângeorz-băi, românia
                         </p>
                     </div>
 
@@ -89,7 +89,7 @@ export function Footer() {
                 {/* Bottom row */}
                 <div className="border-t border-[var(--border)] pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <p className="text-[11px] text-[var(--muted)] tracking-wider lowercase">
-                        &copy; {new Date().getFullYear()} akashic dreams. all rights reserved.
+                        &copy; {new Date().getFullYear()} akashic dreams. toate drepturile rezervate.
                     </p>
                     <div className="flex items-center gap-6">
                         <a
@@ -102,7 +102,7 @@ export function Footer() {
                             href="/privacy"
                             className="text-[11px] text-[var(--muted)] hover:text-[var(--fg)] transition-colors lowercase tracking-wider"
                         >
-                            privacy policy
+                            politica de confidențialitate
                         </Link>
                     </div>
                 </div>

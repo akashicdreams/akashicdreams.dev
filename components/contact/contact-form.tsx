@@ -28,7 +28,7 @@ export function ContactForm() {
             const data = await response.json();
 
             if (!response.ok) {
-                throw new Error(data.error || 'Failed to send message');
+                throw new Error(data.error || 'mesajul nu a putut fi trimis');
             }
 
             setStatus('success');
@@ -36,7 +36,7 @@ export function ContactForm() {
         } catch (error: any) {
             console.error('Error submitting form:', error);
             setStatus('error');
-            setErrorMessage(error.message || 'Something went wrong. Please try again.');
+            setErrorMessage(error.message || 'ceva nu a funcționat. te rugăm să încerci din nou.');
         }
     };
 
@@ -49,7 +49,7 @@ export function ContactForm() {
         >
             <div>
                 <label htmlFor="name" className="block text-sm lowercase tracking-wider mb-4 text-[var(--muted)] font-semibold">
-                    name
+                    nume
                 </label>
                 <input
                     type="text"
@@ -77,7 +77,7 @@ export function ContactForm() {
 
             <div>
                 <label htmlFor="message" className="block text-sm lowercase tracking-wider mb-4 text-[var(--muted)] font-semibold">
-                    message
+                    mesaj
                 </label>
                 <textarea
                     id="message"
@@ -96,13 +96,13 @@ export function ContactForm() {
                     className="w-full px-12 py-5 text-lg lowercase tracking-wider font-bold rounded-sm hover:opacity-80 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     style={{ backgroundColor: 'var(--fg)', color: 'var(--bg)' }}
                 >
-                    {status === 'loading' ? 'sending...' : status === 'success' ? 'message sent!' : 'send'}
+                    {status === 'loading' ? 'se trimite...' : status === 'success' ? 'mesaj trimis!' : 'trimite'}
                 </button>
             </div>
 
             {status === 'success' && (
                 <p className="text-base text-green-500 text-center font-medium">
-                    thanks for reaching out! we&apos;ll get back to you soon.
+                    îți mulțumim! revenim cu un răspuns în cel mult o zi.
                 </p>
             )}
 

@@ -60,10 +60,10 @@ export function ClientsPageClient({ clients, serviceMap }: ClientsPageClientProp
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xs tracking-[0.4em] text-[var(--muted)] mb-8 lowercase font-semibold"
             >
-              who we work with
+              cu cine lucrăm
             </motion.span>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold lowercase tracking-tighter mb-8 text-center">
-              clients
+              clienți
             </h1>
             <motion.p
               initial={{ opacity: 0 }}
@@ -136,7 +136,7 @@ export function ClientsPageClient({ clients, serviceMap }: ClientsPageClientProp
             <p className="text-sm text-[var(--muted)]">
               check back later or{' '}
               <Link href="/services" className="underline hover:text-[var(--fg)] transition-colors">
-                explore our services
+                vezi serviciile noastre
               </Link>
             </p>
           </div>

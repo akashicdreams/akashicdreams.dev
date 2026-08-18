@@ -72,10 +72,10 @@ export function WorkShowcase({ portfolioByService, services }: WorkShowcaseProps
                     className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-20 md:mb-28"
                 >
                     <h2 className="display-lg lowercase max-w-3xl">
-                        discover our projects.
+                        proiectele noastre.
                     </h2>
                     <Link href="/portfolio" className="arrow-link text-lg lowercase shrink-0">
-                        our work <span className="arrow">→</span>
+                        portofoliu <span className="arrow">→</span>
                     </Link>
                 </motion.div>
 
@@ -141,7 +141,7 @@ export function WorkShowcase({ portfolioByService, services }: WorkShowcaseProps
                     className="flex justify-center mt-16 md:mt-20"
                 >
                     <Link href="/portfolio" className="arrow-link text-lg lowercase">
-                        view the full portfolio <span className="arrow">→</span>
+                        vezi portofoliul complet <span className="arrow">→</span>
                     </Link>
                 </motion.div>
             </div>

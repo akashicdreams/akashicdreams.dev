@@ -37,7 +37,7 @@ export function ContactCTA() {
                         contact
                     </p>
                     <h2 className="display-lg lowercase">
-                        have an idea? let&apos;s give it shape.
+                        ai o idee? hai să îi dăm formă.
                     </h2>
                 </motion.div>
 
@@ -64,7 +64,7 @@ export function ContactCTA() {
 
                             <div>
                                 <h3 className="text-xs tracking-[0.3em] text-[var(--muted)] lowercase mb-4 font-semibold">
-                                    phone
+                                    telefon
                                 </h3>
                                 <a
                                     href="tel:+40741963166"
@@ -76,7 +76,7 @@ export function ContactCTA() {
 
                             <div>
                                 <h3 className="text-xs tracking-[0.3em] text-[var(--muted)] lowercase mb-4 font-semibold">
-                                    address
+                                    adresă
                                 </h3>
                                 <a
                                     href="https://maps.app.goo.gl/TjjrN1sErVWQexCAA"
@@ -84,7 +84,7 @@ export function ContactCTA() {
                                     rel="noopener noreferrer"
                                     className="arrow-link text-xl lowercase"
                                 >
-                                    plopului street, 2h, sângeorz-băi, romania
+                                    strada plopului 2h, sângeorz-băi, românia
                                 </a>
                             </div>
 

@@ -6,18 +6,18 @@ import { services } from '@/lib/services';
 
 const pillars: { label: string; blurb: string; slugs: string[] }[] = [
     {
-        label: 'development',
-        blurb: 'functional, fast, and optimized software.',
+        label: 'dezvoltare',
+        blurb: 'software rapid, funcțional și optimizat.',
         slugs: ['website-development', 'mobile-application'],
     },
     {
-        label: 'visual',
-        blurb: 'identities, images, and films that tell a story.',
+        label: 'vizual',
+        blurb: 'identități, imagini și filme care spun o poveste.',
         slugs: ['brand-identity', 'photography', 'videography'],
     },
     {
-        label: 'growth',
-        blurb: 'consistent presence, adapted to your needs.',
+        label: 'creștere',
+        blurb: 'prezență constantă, adaptată nevoilor tale.',
         slugs: ['social-media-management'],
     },
 ];
@@ -36,14 +36,14 @@ export function ServicesPillars() {
                 >
                     <div className="max-w-3xl">
                         <h2 className="display-lg lowercase mb-6">
-                            what can we create together?
+                            ce putem construi împreună?
                         </h2>
                         <p className="text-lg md:text-xl text-[var(--surface-muted)] lowercase leading-relaxed">
-                            clarity, functionality, and results.
+                            claritate, funcționalitate și rezultate.
                         </p>
                     </div>
                     <Link href="/services" className="arrow-link text-lg lowercase shrink-0">
-                        all services <span className="arrow">→</span>
+                        toate serviciile <span className="arrow">→</span>
                     </Link>
                 </motion.div>
 
@@ -80,7 +80,7 @@ export function ServicesPillars() {
                                                 {service.title}
                                             </span>
                                             <span className="text-sm text-[var(--surface-muted)] lowercase whitespace-nowrap shrink-0">
-                                                from {service.startingPrice} {service.currency.toLowerCase()}
+                                                de la {service.startingPrice} {service.currency.toLowerCase()}
                                             </span>
                                         </Link>
                                     ))}
@@ -98,7 +98,7 @@ export function ServicesPillars() {
                     transition={{ duration: 0.6, delay: 0.3 }}
                     className="text-sm text-[var(--surface-muted)] lowercase mt-14 tracking-wide"
                 >
-                    all prices are estimates - final pricing depends on project scope and requirements.
+                    prețurile sunt estimative. costul final depinde de complexitatea proiectului.
                 </motion.p>
             </div>
         </section>

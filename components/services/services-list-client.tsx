@@ -67,7 +67,7 @@ function ServiceRow({ service, index }: { service: Service; index: number }) {
 
                         <div className="flex items-baseline gap-2 shrink-0">
                             <span className="text-xs tracking-wider text-[var(--muted)] lowercase font-semibold">
-                                from
+                                de la
                             </span>
                             <span className="text-3xl font-bold tracking-tight">
                                 {service.startingPrice}
@@ -106,7 +106,7 @@ function ServiceRow({ service, index }: { service: Service; index: number }) {
                             </p>
                             <div className="flex items-baseline gap-2">
                                 <span className="text-xs tracking-wider text-[var(--muted)] lowercase font-semibold">
-                                    from
+                                    de la
                                 </span>
                                 <span className="text-2xl font-bold tracking-tight">
                                     {service.startingPrice}
@@ -173,10 +173,10 @@ export function ServicesListClient({ services }: ServicesListClientProps) {
                             transition={{ duration: 0.6, delay: 0.2 }}
                             className="text-xs tracking-[0.4em] text-[var(--muted)] mb-8 lowercase font-semibold"
                         >
-                            what we offer
+                            ce oferim
                         </motion.span>
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold lowercase tracking-tighter mb-8 text-center">
-                            services
+                            servicii
                         </h1>
                         <motion.p
                             initial={{ opacity: 0 }}
@@ -184,7 +184,7 @@ export function ServicesListClient({ services }: ServicesListClientProps) {
                             transition={{ duration: 0.8, delay: 0.4 }}
                             className="text-lg md:text-xl text-[var(--muted)] lowercase text-center"
                         >
-                            from software to visual storytelling
+                            de la software la povești vizuale
                         </motion.p>
                     </motion.header>
                 </div>
