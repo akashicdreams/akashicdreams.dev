@@ -6,9 +6,23 @@ export interface Client {
   slug: string;
   name: string;
   icon?: string;
+  /** the client's own site, if we built or maintain one */
+  website?: string;
+  /** 4:3 showcase image (1024x768) collecting the work done for this client */
+  showcase?: string;
 }
 
 const clientsDirectory = path.join(process.cwd(), 'content', 'clients');
+
+/** True when a "/foo/bar.png" style path resolves to a real file in public/ */
+function publicFileExists(publicPath?: string): boolean {
+  if (!publicPath) return false;
+  try {
+    return fs.existsSync(path.join(process.cwd(), 'public', publicPath.replace(/^\//, '')));
+  } catch {
+    return false;
+  }
+}
 
 const clientCache = new Map<string, Client | null>();
 
@@ -29,6 +43,10 @@ export function getClientBySlug(slug: string): Client | null {
       slug,
       name: data.name || slug.replace(/-/g, ' '),
       icon: data.icon,
+      website: data.website,
+      // Only expose the showcase once the file actually exists, so a client
+      // without artwork yet falls back to the logo tile instead of a broken image
+      showcase: publicFileExists(data.showcase) ? data.showcase : undefined,
     };
 
     clientCache.set(slug, client);

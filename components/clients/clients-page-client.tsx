@@ -88,11 +88,12 @@ export function ClientsPageClient({ clients, serviceMap }: ClientsPageClientProp
           {clients.map((client, index) => (
             <motion.div
               key={client.slug}
+              id={client.slug}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ delay: index * 0.08, duration: 0.6 }}
-              className="group card-glow border border-[var(--border)] rounded-sm overflow-hidden hover:border-[var(--fg)] transition-all duration-500 p-8 md:p-10 relative"
+              className="group card-glow border border-[var(--border)] rounded-sm overflow-hidden hover:border-[var(--fg)] transition-all duration-500 p-8 md:p-10 relative scroll-mt-28"
             >
               <div className="flex items-center gap-5 mb-6">
                 {client.icon && (

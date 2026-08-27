@@ -6,19 +6,19 @@ import { ProcessSection } from '@/components/home/process-section';
 import { ClientMarquee } from '@/components/home/client-marquee';
 import { Testimonials } from '@/components/home/testimonials';
 import { ContactCTA } from '@/components/home/contact-cta';
-import { services } from '@/lib/services';
-import { getFeaturedPortfolioItems } from '@/lib/portfolio';
+import { getAllClientsWithPortfolio } from '@/lib/portfolio';
 
 export default function HomePage() {
-  const portfolioByService = getFeaturedPortfolioItems();
+  // Clients only - our own projects live on /portfolio, not in the client showcase
+  const clients = getAllClientsWithPortfolio();
 
   return (
     <div className="bg-[var(--bg)] min-h-screen">
       {/* Editorial hero - greeting, big headline, service chips */}
       <EditorialHero />
 
-      {/* Portfolio - gray color block with rounded cards */}
-      <WorkShowcase portfolioByService={portfolioByService} services={services} />
+      {/* Clients - gray color block with one card per client */}
+      <WorkShowcase clients={clients} />
 
       {/* About - inverted block + text marquee */}
       <WhoWeAre />

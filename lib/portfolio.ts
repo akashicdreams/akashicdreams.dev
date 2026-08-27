@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { getPhotoAlbumBySlug, PhotoAlbum } from './photos';
 import { getClientBySlug } from './clients';
+import { services } from './services';
 
 export interface BasePortfolioItem {
   slug: string;
@@ -254,6 +255,8 @@ export interface ClientWithPortfolio {
   slug: string;
   name: string;
   icon?: string;
+  website?: string;
+  showcase?: string;
   services: { serviceSlug: string; serviceTitle: string; items: PortfolioItem[] }[];
 }
 
@@ -280,14 +283,10 @@ export function getAllClientsWithPortfolio(): ClientWithPortfolio[] {
     }
   }
 
-  const serviceNameMap: Record<string, string> = {
-    'website-development': 'website development',
-    'social-media-management': 'social media management',
-    'mobile-application': 'mobile application',
-    'videography': 'videography',
-    'photography': 'photography',
-    'brand-identity': 'brand identity',
-  };
+  // Titles come from the services lib so there is a single source of truth
+  const serviceNameMap: Record<string, string> = Object.fromEntries(
+    services.map((s) => [s.slug, s.title])
+  );
 
   const results: ClientWithPortfolio[] = [];
   for (const [clientSlug, serviceEntries] of clientMap.entries()) {
@@ -297,6 +296,8 @@ export function getAllClientsWithPortfolio(): ClientWithPortfolio[] {
       slug: client.slug,
       name: client.name,
       icon: client.icon,
+      website: client.website,
+      showcase: client.showcase,
       services: serviceEntries.map((e) => ({
         serviceSlug: e.serviceSlug,
         serviceTitle: serviceNameMap[e.serviceSlug] || e.serviceSlug.replace(/-/g, ' '),
