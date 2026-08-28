@@ -25,7 +25,7 @@ export function WebsiteShowcase({ items }: WebsiteShowcaseProps) {
             if (project.url) window.open(project.url, '_blank', 'noopener,noreferrer');
           }}
         >
-          {project.thumbnail && (
+          {project.thumbnail ? (
             <div className="aspect-video bg-[var(--border)] relative overflow-hidden">
               <Image
                 src={project.thumbnail}
@@ -35,6 +35,20 @@ export function WebsiteShowcase({ items }: WebsiteShowcaseProps) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg)] via-transparent to-transparent opacity-60" />
             </div>
+          ) : (
+            project.clientIcon && (
+              /* No screenshot yet: a centered logo tile keeps the grid even */
+              <div className="aspect-video bg-[var(--border)] relative overflow-hidden flex items-center justify-center p-12">
+                <div className="relative w-full h-full">
+                  <Image
+                    src={project.clientIcon}
+                    alt={project.clientName || project.title}
+                    fill
+                    className="object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-500"
+                  />
+                </div>
+              </div>
+            )
           )}
 
           <div className="p-8 md:p-10">

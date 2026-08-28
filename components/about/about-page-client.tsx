@@ -139,7 +139,7 @@ export function AboutPageClient() {
             <SectionDivider />
 
             {/* ─── WHAT IS AKASHIC ─── */}
-            <section className="relative py-44 md:py-56">
+            <section className="relative section-pad">
                 <div className="absolute inset-0 animated-gradient-bg" />
                 <div className="relative z-10 flex justify-center px-8 md:px-6">
                     <motion.div
@@ -181,7 +181,7 @@ export function AboutPageClient() {
             <SectionDivider />
 
             {/* ─── WHO WE ARE ─── */}
-            <section className="relative py-44 md:py-56 overflow-hidden">
+            <section className="relative section-pad overflow-hidden">
                 <div className="absolute inset-0">
                     <MatrixRain opacity={0.03} speed={0.4} density={0.2} />
                 </div>
@@ -231,7 +231,7 @@ export function AboutPageClient() {
             <SectionDivider />
 
             {/* ─── THE TEAM ─── */}
-            <section className="relative py-44 md:py-56 overflow-hidden">
+            <section className="relative section-pad overflow-hidden">
                 <div className="absolute inset-0 animated-gradient-bg" />
                 <FloatingParticles count={10} minSize={1} maxSize={3} />
 
@@ -326,7 +326,7 @@ export function AboutPageClient() {
             <SectionDivider />
 
             {/* ─── THE PHILOSOPHY ─── */}
-            <section className="relative py-44 md:py-56 overflow-hidden">
+            <section className="relative section-pad overflow-hidden">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] pointer-events-none opacity-[0.03]">
                     <motion.div
                         animate={{ rotate: 360 }}
@@ -395,65 +395,8 @@ export function AboutPageClient() {
 
             <SectionDivider />
 
-            {/* ─── THE DUALITY ─── */}
-            <section className="relative py-44 md:py-56 overflow-hidden">
-                <FloatingParticles count={10} minSize={1} maxSize={3} />
-
-                <div className="relative z-10 flex justify-center px-8 md:px-6">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1 }}
-                        className="text-center"
-                        style={{ maxWidth: '56rem' }}
-                    >
-                        <span className="text-xs tracking-[0.4em] text-[var(--muted)] lowercase font-semibold block mb-10">
-                            doi piloni
-                        </span>
-                        <h2 className="text-4xl md:text-6xl font-bold lowercase tracking-tighter mb-20">
-                            software și vizual
-                        </h2>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20 text-center">
-                            <motion.div
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: 0.2 }}
-                            >
-                                <span className="text-xs font-mono text-[var(--muted)] tracking-wider font-semibold block mb-5">01</span>
-                                <h3 className="text-2xl md:text-3xl font-bold lowercase tracking-tight mb-6">
-                                    software
-                                </h3>
-                                <p className="text-base text-[var(--muted)] lowercase leading-relaxed">
-                                    construim site-uri, aplicații mobile și sisteme digitale de la zero. arhitectură curată, tehnologii moderne și atenție constantă la viteză. fiecare proiect este tratat ca o meserie, de la primul commit până la lansare.
-                                </p>
-                            </motion.div>
-
-                            <motion.div
-                                initial={{ opacity: 0, x: 20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: 0.4 }}
-                            >
-                                <span className="text-xs font-mono text-[var(--muted)] tracking-wider font-semibold block mb-5">02</span>
-                                <h3 className="text-2xl md:text-3xl font-bold lowercase tracking-tight mb-6">
-                                    vizual
-                                </h3>
-                                <p className="text-base text-[var(--muted)] lowercase leading-relaxed">
-                                    fotografie, video și identitate vizuală. surprindem momente reale și construim limbaje vizuale care spun cine ești. de la evenimente la campanii, fiecare cadru este gândit și editat cu grijă.
-                                </p>
-                            </motion.div>
-                        </div>
-                    </motion.div>
-                </div>
-            </section>
-
-            <SectionDivider />
-
             {/* ─── CTA ─── */}
-            <section className="relative py-44 md:py-56 overflow-hidden">
+            <section className="relative section-pad overflow-hidden">
                 <div className="absolute inset-0">
                     <MatrixRain opacity={0.04} speed={0.5} density={0.25} />
                 </div>

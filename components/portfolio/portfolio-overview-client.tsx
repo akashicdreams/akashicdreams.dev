@@ -193,7 +193,7 @@ function StandardCard({ item, index }: { item: PortfolioItem; index: number }) {
 
   const inner = (
     <>
-      {thumbnail && (
+      {thumbnail ? (
         <div className="aspect-[16/10] relative overflow-hidden bg-[var(--border)]">
           <Image
             src={thumbnail}
@@ -203,6 +203,20 @@ function StandardCard({ item, index }: { item: PortfolioItem; index: number }) {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg)] via-transparent to-transparent opacity-50" />
         </div>
+      ) : (
+        item.clientIcon && (
+          /* No artwork yet: a centered logo tile keeps the grid even */
+          <div className="aspect-[16/10] relative overflow-hidden bg-[var(--border)] flex items-center justify-center p-8">
+            <div className="relative w-full h-full">
+              <Image
+                src={item.clientIcon}
+                alt={item.clientName || item.title}
+                fill
+                className="object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-500"
+              />
+            </div>
+          </div>
+        )
       )}
       <div className="p-4">
         <ClientTag icon={item.clientIcon} name={item.clientName} />

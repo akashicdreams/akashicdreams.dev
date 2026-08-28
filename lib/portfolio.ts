@@ -76,6 +76,10 @@ type ServiceSlug =
 
 const contentBase = path.join(process.cwd(), 'content', 'portfolio');
 
+/** Our own studio. We are not one of our own clients, so in-house projects are
+ *  never listed as client work or in the public portfolio. */
+const OWN_BRAND_SLUG = 'akashic-dreams';
+
 function parseMarkdownFiles(serviceSlug: string) {
   const dir = path.join(contentBase, serviceSlug);
   if (!fs.existsSync(dir)) return [];
@@ -211,7 +215,11 @@ export function getPortfolioByService(serviceSlug: string): PortfolioItem[] {
   if (!builder) return [];
 
   try {
-    return builder().sort((a, b) => (a.date > b.date ? -1 : 1));
+    return builder()
+      // The public portfolio shows client work only. Our own projects stay in
+      // content/ but are hidden until they get a dedicated section of their own.
+      .filter((item) => item.clientSlug !== OWN_BRAND_SLUG)
+      .sort((a, b) => (a.date > b.date ? -1 : 1));
   } catch (error) {
     console.error(`Error loading portfolio for ${serviceSlug}:`, error);
     return [];
@@ -259,10 +267,6 @@ export interface ClientWithPortfolio {
   showcase?: string;
   services: { serviceSlug: string; serviceTitle: string; items: PortfolioItem[] }[];
 }
-
-/** Our own studio - our in-house projects stay in the portfolio, but we
- *  are not one of our own clients, so we never list ourselves as one. */
-const OWN_BRAND_SLUG = 'akashic-dreams';
 
 export function getAllClientsWithPortfolio(): ClientWithPortfolio[] {
   const all = getAllPortfolioItems();
